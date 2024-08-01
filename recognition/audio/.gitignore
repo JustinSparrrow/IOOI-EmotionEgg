@@ -1,0 +1,11 @@
+__pycache__/
+.idea/
+build/
+dist/
+mser.egg-info/
+dataset/
+log/
+output/
+models/
+!dataset/test.wav
+test*.py

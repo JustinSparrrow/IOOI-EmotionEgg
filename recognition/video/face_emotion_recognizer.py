@@ -15,7 +15,7 @@ class FaceEmotionRecognizer:
         cap = cv2.VideoCapture(0)  # 打开摄像头
         last_emotion = None
         last_update_time = time.time()
-        display_duration = 4  # 每个情绪显示的时间（秒）
+        display_duration = 2  # 每个情绪显示的时间（秒）
         times = 0
 
         while cap.isOpened() and times == 0:

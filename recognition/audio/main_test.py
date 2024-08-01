@@ -17,9 +17,11 @@ audio_handler = AudioHandler()
 recording_thread = None
 recording = False
 
+# 初始化事件
+stop_event = threading.Event()
 
 # 键盘事件处理函数
-def on_press(key):
+def on_press(key, listener):
     global recording, recording_thread
 
     try:
@@ -30,11 +32,16 @@ def on_press(key):
                 recording_thread.join()  # 等待录音线程结束
                 process_audio(audio_handler.frames)  # 处理录音后的音频
                 recording = False
+
+                listener.stop()
+                stop_event.set()
+
             else:
                 print("Starting audio recording...")
                 recording_thread = threading.Thread(target=audio_handler.start_recording)
                 recording_thread.start()
                 recording = True
+
     except AttributeError:
         pass
 
@@ -86,9 +93,5 @@ def process_audio(frames):
 def audio():
     # 启动键盘监听
     print("Starting audio recording...")
-    with keyboard.Listener(on_press=on_press) as listener:
+    with keyboard.Listener(on_press=lambda key: on_press(key, listener)) as listener:
         listener.join()
-
-
-if __name__ == '__main__':
-    audio()

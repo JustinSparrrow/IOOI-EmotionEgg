@@ -1,3 +1,7 @@
 time.struct_time(tm_year=2024, tm_mon=8, tm_mday=1, tm_hour=0, tm_min=24, tm_sec=37, tm_wday=3, tm_yday=214, tm_isdst=0) 用户信息： Hmm 用户检测到的情绪是：难过，得分：0.94093
 time.struct_time(tm_year=2024, tm_mon=8, tm_mday=1, tm_hour=0, tm_min=27, tm_sec=34, tm_wday=3, tm_yday=214, tm_isdst=0) 用户信息：到底怎麼樣 用户检测到的情绪是：中立，得分：0.85562
 time.struct_time(tm_year=2024, tm_mon=8, tm_mday=1, tm_hour=0, tm_min=27, tm_sec=57, tm_wday=3, tm_yday=214, tm_isdst=0) 用户信息：請你大爺的 用户检测到的情绪是：生气，得分：1.0
+time.struct_time(tm_year=2024, tm_mon=8, tm_mday=1, tm_hour=15, tm_min=40, tm_sec=47, tm_wday=3, tm_yday=214, tm_isdst=0) 用户信息：S开始启动这个录音启动完录音之后然后再 用户检测到的情绪是：中立，得分：0.57644
+time.struct_time(tm_year=2024, tm_mon=8, tm_mday=1, tm_hour=15, tm_min=41, tm_sec=52, tm_wday=3, tm_yday=214, tm_isdst=0) 用户信息：如果我们带其动椅子的话,如果 用户检测到的情绪是：中立，得分：0.99942
+time.struct_time(tm_year=2024, tm_mon=8, tm_mday=1, tm_hour=17, tm_min=7, tm_sec=19, tm_wday=3, tm_yday=214, tm_isdst=0) 用户信息：不是哥們我注意到你的話似乎沒有說 用户检测到的情绪是：难过，得分：0.999
+time.struct_time(tm_year=2024, tm_mon=8, tm_mday=1, tm_hour=17, tm_min=11, tm_sec=24, tm_wday=3, tm_yday=214, tm_isdst=0) 用户信息： Man, what can I see? 用户检测到的情绪是：中立，得分：0.99998

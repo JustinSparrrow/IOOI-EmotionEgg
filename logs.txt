@@ -15,3 +15,8 @@ time.struct_time(tm_year=2024, tm_mon=8, tm_mday=3, tm_hour=8, tm_min=13, tm_sec
 time.struct_time(tm_year=2024, tm_mon=8, tm_mday=3, tm_hour=8, tm_min=16, tm_sec=54, tm_wday=5, tm_yday=216, tm_isdst=0) 用户信息：怎麼辦 我今天又熬夜了 用户检测到的情绪是：难过，得分：1.0
 time.struct_time(tm_year=2024, tm_mon=8, tm_mday=3, tm_hour=15, tm_min=49, tm_sec=58, tm_wday=5, tm_yday=216, tm_isdst=0) 用户信息：我现在有点忙过 用户检测到的情绪是：难过，得分：0.80871
 time.struct_time(tm_year=2024, tm_mon=8, tm_mday=3, tm_hour=15, tm_min=50, tm_sec=39, tm_wday=5, tm_yday=216, tm_isdst=0) 用户信息：我不想读书了 用户检测到的情绪是：中立，得分：0.57684
+time.struct_time(tm_year=2024, tm_mon=8, tm_mday=3, tm_hour=16, tm_min=42, tm_sec=1, tm_wday=5, tm_yday=216, tm_isdst=0) 用户信息：所以就换随便换一句话你好啊 用户检测到的情绪是：中立，得分：0.5874
+time.struct_time(tm_year=2024, tm_mon=8, tm_mday=3, tm_hour=16, tm_min=42, tm_sec=26, tm_wday=5, tm_yday=216, tm_isdst=0) 用户信息：一次点按牛进行录音点 用户检测到的情绪是：中立，得分：1.0
+time.struct_time(tm_year=2024, tm_mon=8, tm_mday=3, tm_hour=16, tm_min=42, tm_sec=56, tm_wday=5, tm_yday=216, tm_isdst=0) 用户信息：你可以给我提供哪些帮助 用户检测到的情绪是：生气，得分：0.99159
+time.struct_time(tm_year=2024, tm_mon=8, tm_mday=3, tm_hour=16, tm_min=43, tm_sec=24, tm_wday=5, tm_yday=216, tm_isdst=0) 用户信息：我想问的是你在这上生活当中能够帮助我什么 用户检测到的情绪是：生气，得分：1.0
+time.struct_time(tm_year=2024, tm_mon=8, tm_mday=3, tm_hour=16, tm_min=43, tm_sec=58, tm_wday=5, tm_yday=216, tm_isdst=0) 用户信息：我心确实很慢我最近一直在玩手机但是我现在找不到让我开心的事情了怎么办 用户检测到的情绪是：生气，得分：0.99916

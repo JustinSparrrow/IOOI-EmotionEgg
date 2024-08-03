@@ -40,7 +40,7 @@ def play_video(video_path):
 def monitor_emotion_and_play():
     last_emotion = None
     while True:
-        path = "../utils/global_emotion.txt"
+        path = "../emotion/global_emotion.txt"
         with open(path, 'r') as file:
             current_emotion = file.read().strip()
             current_emotion = change_emotion(current_emotion)

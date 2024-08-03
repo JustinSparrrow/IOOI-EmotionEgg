@@ -3,7 +3,7 @@ import sys
 import os
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../')
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../utils')
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../emotion')
 
 from utils.globals import read_global_emotion
 import time
@@ -16,7 +16,7 @@ from interface.emotion_interface import EmotionInterface
 def monitor_emotion_changes(emotion_queue):
     previous_emotion = None
     while True:
-        path = "../utils/global_emotion.txt"
+        path = "../emotion/global_emotion.txt"
         current_emotion = read_global_emotion(path)
         if current_emotion != previous_emotion:
             print(f"Global emotion changed to: {current_emotion}")
@@ -29,7 +29,7 @@ def open_agents():
     emotion_queue = Queue()
     app = EmotionInterface(root, emotion_queue)
 
-    # Start a thread to monitor global emotion changes
+    # Start a thread to monitor emotion emotion changes
     thread = threading.Thread(target=monitor_emotion_changes, args=(emotion_queue,))
     thread.daemon = True
     thread.start()

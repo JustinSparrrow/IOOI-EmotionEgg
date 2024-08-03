@@ -5,13 +5,13 @@ from gtts import gTTS
 
 # 设置路径
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../')
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../utils')
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../emotion')
 
 from agents.agents_manager import EmotionAgentsManager
 
 # 文件路径
 transcript_file = "../../../transcript.txt"
-emotion_file = "../../../utils/global_emotion.txt"
+emotion_file = "../../../emotion/emotion.txt"
 
 
 def speak(text):

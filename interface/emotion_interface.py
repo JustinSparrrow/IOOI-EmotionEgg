@@ -23,7 +23,7 @@ class EmotionInterface:
         self.update_face_canvas()
 
     def update_face_canvas(self):
-        path = "../utils/global_emotion.txt"
+        path = "../emotion/global_emotion.txt"
         current_emotion = globals.read_global_emotion(path)  # 假设从文件读取情绪
 
         self.face_canvas.delete("all")  # 清除画布上的所有内容

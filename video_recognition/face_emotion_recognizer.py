@@ -3,8 +3,10 @@ import cv2
 from deepface import DeepFace
 import time
 
-from utils import globals
+from emotion import globals
 
+emotion_file = "/Users/moqi/Desktop/竞赛/2024创客赛/emotion-egg/Emotion-Egg/emotion/global_emotion.txt"
+transcript_file = "/Users/moqi/Desktop/竞赛/2024创客赛/emotion-egg/Emotion-Egg/video_recognition/video_transcript"
 
 class FaceEmotionRecognizer:
 
@@ -32,10 +34,12 @@ class FaceEmotionRecognizer:
                     last_update_time = current_time
 
                     print(last_emotion)
-                    path = "../emotion/global_emotion.txt"
-                    globals.update_global_emotion(last_emotion, path)
-                    print(f"Updated emotion to {globals.read_global_emotion(path)}")
+                    globals.update_global_emotion(last_emotion, emotion_file)
+                    print(f"Updated emotion to {globals.read_global_emotion(emotion_file)}")
                     times = 1
+
+                    with open(transcript_file, "w") as f:
+                        f.write(f"我现在的心情是{last_emotion}")
                     # update_face_canvas(last_emotion)
 
             if last_emotion:

@@ -1,11 +1,8 @@
 import cv2
 import time
 import pygame
-from pynput import keyboard
-import threading
 
 # 定义按键计数器和视频计数器
-press_count = 0
 video_count = 1
 
 def play_video_with_sound(video_file):
@@ -36,35 +33,18 @@ def play_video_with_sound(video_file):
     cv2.destroyAllWindows()
     pygame.mixer.music.stop()
 
-def on_press(key):
-    global press_count, video_count
+# 在程序启动1秒后自动播放第一个视频
+time.sleep(1)
+video_file = f"script{video_count}.mp4"
+play_video_with_sound(video_file)
+video_count += 1
 
-    try:
-        if key.char == 's':
-            press_count += 1
-
-            # 在每个偶数次按下时播放视频
-            if press_count % 2 == 0:
-                if video_count <= 5:
-                    video_file = f"script{video_count}.mp4"
-                    play_video_with_sound(video_file)
-                    video_count += 1
-                else:
-                    return False  # 停止监听
-    except AttributeError:
-        pass
-
-def start_video():
-    global video_count
-    time.sleep(1)
-    video_file = f"script{video_count}.mp4"
-    play_video_with_sound(video_file)
-    video_count += 1
-
-# 启动播放第一个视频的线程
-video_thread = threading.Thread(target=start_video)
-video_thread.start()
-
-# 确保第一个视频播放完成后再启动键盘监听
-with keyboard.Listener(on_press=on_press) as listener:
-    listener.join()
+# 使用无限循环和input()读取用户输入
+while video_count <= 5:
+    user_input = input("按下 's' 键播放下一个视频: ").strip().lower()
+    if user_input == 's':
+        video_file = f"script{video_count}.mp4"
+        play_video_with_sound(video_file)
+        video_count += 1
+    else:
+        print("无效输入，请按 's' 键继续。")

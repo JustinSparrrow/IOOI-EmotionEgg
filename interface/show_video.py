@@ -52,7 +52,7 @@ def monitor_emotion_and_play():
                 play_video(video_path)
                 last_emotion = current_emotion
             else:
-                print("No videos available for this emotion.")
+                print(f"No videos available for this emotion {current_emotion}.")
             time.sleep(1)  # 减少检查频率以减少资源消耗
 
 

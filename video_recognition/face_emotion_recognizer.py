@@ -6,7 +6,7 @@ import time
 from emotion import globals
 
 emotion_file = "/Users/moqi/Desktop/竞赛/2024创客赛/emotion-egg/Emotion-Egg/emotion/global_emotion.txt"
-transcript_file = "/Users/moqi/Desktop/竞赛/2024创客赛/emotion-egg/Emotion-Egg/video_recognition/video_transcript"
+transcript_file = "/Users/moqi/Desktop/竞赛/2024创客赛/emotion-egg/Emotion-Egg/voice_interaction/output/transcript.txt"
 
 class FaceEmotionRecognizer:
 
@@ -39,7 +39,7 @@ class FaceEmotionRecognizer:
                     times = 1
 
                     with open(transcript_file, "w") as f:
-                        f.write(f"我现在的心情是{last_emotion}")
+                        f.write(f"我现在的心情是{last_emotion}，我需要你主动询问我为什么是这个心情。")
                     # update_face_canvas(last_emotion)
 
             if last_emotion:

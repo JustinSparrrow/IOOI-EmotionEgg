@@ -20,3 +20,5 @@ time.struct_time(tm_year=2024, tm_mon=8, tm_mday=3, tm_hour=16, tm_min=42, tm_se
 time.struct_time(tm_year=2024, tm_mon=8, tm_mday=3, tm_hour=16, tm_min=42, tm_sec=56, tm_wday=5, tm_yday=216, tm_isdst=0) 用户信息：你可以给我提供哪些帮助 用户检测到的情绪是：生气，得分：0.99159
 time.struct_time(tm_year=2024, tm_mon=8, tm_mday=3, tm_hour=16, tm_min=43, tm_sec=24, tm_wday=5, tm_yday=216, tm_isdst=0) 用户信息：我想问的是你在这上生活当中能够帮助我什么 用户检测到的情绪是：生气，得分：1.0
 time.struct_time(tm_year=2024, tm_mon=8, tm_mday=3, tm_hour=16, tm_min=43, tm_sec=58, tm_wday=5, tm_yday=216, tm_isdst=0) 用户信息：我心确实很慢我最近一直在玩手机但是我现在找不到让我开心的事情了怎么办 用户检测到的情绪是：生气，得分：0.99916
+time.struct_time(tm_year=2024, tm_mon=8, tm_mday=5, tm_hour=20, tm_min=27, tm_sec=4, tm_wday=0, tm_yday=218, tm_isdst=0) 用户信息：你好 用户检测到的情绪是：中立，得分：0.98139
+time.struct_time(tm_year=2024, tm_mon=8, tm_mday=5, tm_hour=20, tm_min=39, tm_sec=7, tm_wday=0, tm_yday=218, tm_isdst=0) 用户信息：能夠這樣錄影錄影影之後它就會根據說話的音色去識別情緒識別傳來之後 用户检测到的情绪是：开心，得分：0.6014

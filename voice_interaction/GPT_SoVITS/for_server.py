@@ -5,6 +5,7 @@ from voice_interaction.GPT_SoVITS.inference_webui import change_gpt_weights, cha
 
 i18n = I18nAuto()
 
+
 def synthesize(GPT_model_path, SoVITS_model_path, ref_audio_path, ref_text_path, ref_language, target_text_path,
                target_language, output_path):
     # Read reference text
@@ -35,6 +36,7 @@ def synthesize(GPT_model_path, SoVITS_model_path, ref_audio_path, ref_text_path,
         print(f"Audio saved to {output_wav_path}")
 
         return output_wav_path  # Return the path of the generated audio file
+
 
 def speak(target_file):
     # In this function, specify the paths

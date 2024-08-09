@@ -4,6 +4,7 @@ import pyaudio
 import wave
 import json
 
+
 async def record_audio():
     """
     使用系统麦克风录制音频并保存为 WAV 文件。
@@ -85,9 +86,33 @@ async def receive_audio_from_server(websocket, text):
         # 如果接收到的实际上是错误信息或文本而非二进制数据
         print(f"Server response: {audio_data}")
     else:
-        with open("output_audio.wav", 'wb') as f:
+        with open("/Users/moqi/Desktop/竞赛/2024创客赛/emotion-egg/Emotion-Egg/voice_interaction/output/output_audio.wav", 'wb') as f:
             f.write(audio_data)
         print("Audio received and saved as output_audio.wav")
+
+        # 播放接收到的音频文件
+        play_audio("/Users/moqi/Desktop/竞赛/2024创客赛/emotion-egg/Emotion-Egg/voice_interaction/output/output_audio.wav")
+
+
+def play_audio(file_path):
+    """播放音频文件"""
+    wf = wave.open(file_path, 'rb')
+    p = pyaudio.PyAudio()
+    stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
+                    channels=wf.getnchannels(),
+                    rate=wf.getframerate(),
+                    output=True)
+
+    data = wf.readframes(1024)
+
+    while data:
+        stream.write(data)
+        data = wf.readframes(1024)
+
+    stream.stop_stream()
+    stream.close()
+    p.terminate()
+
 
 async def main():
     uri = "ws://localhost:8765"

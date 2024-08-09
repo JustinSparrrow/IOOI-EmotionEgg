@@ -14,13 +14,13 @@ class FaceEmotionRecognizer:
         pass
 
     def face_emotion_recognition(self):
-        cap = cv2.VideoCapture(0)  # 打开摄像头
+        cap = cv2.VideoCapture(1)  # 打开摄像头
         last_emotion = None
         last_update_time = time.time()
         display_duration = 2  # 每个情绪显示的时间（秒）
         times = 0
 
-        while cap.isOpened() and times == 0:
+        while cap.isOpened():
             ret, frame = cap.read()  # 读取一帧
             if not ret:
                 break

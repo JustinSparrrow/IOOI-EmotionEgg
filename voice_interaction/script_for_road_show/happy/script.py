@@ -2,9 +2,15 @@ import cv2
 import time
 import pygame
 import os
+from gpiozero import Button
 
-# 定义视频计数器
-video_count = 1
+# 定义视频计数器和按钮计数器
+video_count = 0
+button_press_count = 0
+
+# 初始化按钮
+button = Button(17)
+
 
 def play_video_with_sound(video_file):
     cap = cv2.VideoCapture(video_file)
@@ -38,18 +44,51 @@ def play_video_with_sound(video_file):
     cv2.destroyAllWindows()
     pygame.mixer.music.stop()
 
-# 在程序启动1秒后自动播放第一个视频
-time.sleep(1)
-video_file = f"script{video_count}.mp4"
-play_video_with_sound(video_file)
-video_count += 1
 
-# 使用无限循环和input()读取用户输入
-while video_count <= 5:
-    user_input = input("按下 's' 键播放下一个视频: ").strip().lower()
-    if user_input == 's':
-        video_file = f"script{video_count}.mp4"
-        play_video_with_sound(video_file)
+def handle_button_press():
+    global button_press_count, video_count
+
+    button_press_count += 1
+    print(f"按钮按下次数: {button_press_count}")
+
+    if video_count == 1 and button_press_count >= 2:
         video_count += 1
-    else:
-        print("无效输入，请按 's' 键继续。")
+        play_video_with_sound(f"script{video_count}.mp4")
+        button_press_count = 0  # 重置按钮按下计数器
+    elif video_count == 2 and button_press_count >= 2:
+        video_count += 1
+        play_video_with_sound(f"script{video_count}.mp4")
+        button_press_count = 0  # 重置按钮按下计数器
+    elif video_count == 4 and button_press_count >= 2:
+        video_count += 1
+        play_video_with_sound(f"script{video_count}.mp4")
+        button_press_count = 0  # 重置按钮按下计数器
+
+
+# 按钮绑定事件
+button.when_pressed = handle_button_press
+
+# 在程序启动时自动播放script0
+play_video_with_sound("script0.mp4")
+
+# 播放script1的视频和音频
+video_count = 1
+play_video_with_sound(f"script{video_count}.mp4")
+
+# 循环等待按钮事件
+while video_count <= 5:
+    time.sleep(0.1)  # 延迟一段时间，避免程序退出
+
+    if video_count == 3:
+        play_video_with_sound("script3.mp4")
+        video_count += 1
+
+    if video_count == 4:
+        play_video_with_sound("script4.mp4")
+        video_count += 1
+
+    if video_count == 6:
+        play_video_with_sound("script6.mp4")
+        break  # 完成所有视频播放，退出循环
+
+print("所有视频已播放完毕。")

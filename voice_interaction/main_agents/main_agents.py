@@ -3,8 +3,6 @@ import sys
 import os
 import time
 
-from gtts import gTTS
-
 # 设置路径
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../../../')
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../../../emotion')
@@ -15,19 +13,6 @@ emotion_file = os.path.join(script_dir, "/Users/moqi/Desktop/竞赛/2024创客�
 
 from voice_interaction.main_agents.agents_manager import EmotionAgentsManager
 from voice_interaction.GPT_SoVITS.inference_cli import speak
-
-
-# def speak(text):
-#     """ 使用 gtts 将文本转换为语音并播放 """
-#     if isinstance(text, list):
-#         text = ' '.join(str(item) for item in text)  # 将列表中的每个元素都转换为字符串并连接起来
-#
-#     tts = gTTS(text=text, lang='zh-cn')  # 使用中文语音
-#     temp_file = "temp_speech.mp3"
-#     tts.save(temp_file)
-#     # 播放音频文件，确保系统支持对应的播放命令
-#     os.system(f"start {temp_file}" if os.name == 'nt' else f"mpg123 {temp_file}")
-
 
 target_file = '/Users/moqi/Desktop/竞赛/2024创客赛/emotion-egg/Emotion-Egg/voice_interaction/output/target.txt'
 

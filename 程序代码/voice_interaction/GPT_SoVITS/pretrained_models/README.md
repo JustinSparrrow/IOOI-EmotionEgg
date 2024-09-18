@@ -1,0 +1,1 @@
+models can be downloaded from https://huggingface.co/lj1995/GPT-SoVITS/tree/main

@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e0f2163c-479c-42aa-9972-1a1f5ecb5cc6" name="更改" comment="IOOI前后端">
+      <change afterPath="$PROJECT_DIR$/.idea/IOOI.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agents/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agents/agents_manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agents/emotion_agents.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/Audio.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/Video.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Emotion/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Emotion/global_emotion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Emotion/globals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/data/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/data/bucket_sampler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/data/data_module.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/data/dataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/modules/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/modules/activation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/modules/activation_onnx.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/modules/embedding.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/modules/embedding_onnx.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/modules/lr_schedulers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/modules/optim.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/modules/patched_mha_with_cache.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/modules/patched_mha_with_cache_onnx.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/modules/scaling.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/modules/transformer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/modules/transformer_onnx.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/text_processing/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/text_processing/phonemizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/text_processing/symbols.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/utils/initialize.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/AR/utils/io.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/configs/s1.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/configs/s1big.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/configs/s1big2.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/configs/s1longer.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/configs/s1mq.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/configs/s2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/configs/train.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/feature_extractor/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/feature_extractor/cnhubert.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/feature_extractor/whisper_enc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/for_server.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/gweight.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/inference_cli.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/inference_webui.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/models/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/models/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/models/gpt_weights.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/models/sovits_weights.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/module/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/module/attentions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/module/attentions_onnx.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/module/commons.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/module/core_vq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/module/data_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/module/losses.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/module/mel_processing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/module/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/module/models_onnx.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/module/modules.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/module/mrte_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/module/quantize.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/module/transforms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/onnx_export.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/prepare_datasets/1-get-text.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/prepare_datasets/2-get-hubert-wav32k.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/prepare_datasets/3-get-semantic.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/prepare_datasets/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/pretrained_models/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/pretrained_models/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/process_ckpt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/s1_train.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/s2_train.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/sweight.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/chinese.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/cleaner.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/cmudict-fast.rep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/cmudict.rep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/engdict-hot.rep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/engdict_cache.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/english.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/japanese.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/namedict_cache.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/opencpop-strict.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/symbols.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/tone_sandhi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/zh_normalization/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/zh_normalization/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/zh_normalization/char_convert.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/zh_normalization/chronology.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/zh_normalization/constants.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/zh_normalization/num.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/zh_normalization/phonecode.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/zh_normalization/quantifier.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/text/zh_normalization/text_normlization.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/asr/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/asr/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/asr/fasterwhisper_asr.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/asr/funasr_asr.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/cmd-denoise.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/denoise-model/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/i18n/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/i18n/i18n.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/i18n/locale/en_US.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/i18n/locale/es_ES.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/i18n/locale/fr_FR.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/i18n/locale/it_IT.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/i18n/locale/ja_JP.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/i18n/locale/ko_KR.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/i18n/locale/pt_BR.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/i18n/locale/ru_RU.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/i18n/locale/tr_TR.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/i18n/locale/zh_CN.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/i18n/locale/zh_HK.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/i18n/locale/zh_SG.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/i18n/locale/zh_TW.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/i18n/scan_i18n.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/my_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/slice_audio.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/slicer2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/subfix_webui.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/bs_roformer/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/bs_roformer/attend.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/bs_roformer/bs_roformer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/bsroformer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/dataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/layers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/layers_123812KB.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/layers_123821KB.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/layers_33966KB.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/layers_537227KB.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/layers_537238KB.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/layers_new.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/model_param_init.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/1band_sr16000_hl512.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/1band_sr32000_hl512.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/1band_sr33075_hl384.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/1band_sr44100_hl1024.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/1band_sr44100_hl256.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/1band_sr44100_hl512.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/1band_sr44100_hl512_cut.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/2band_32000.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/2band_44100_lofi.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/2band_48000.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/3band_44100.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/3band_44100_mid.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/3band_44100_msb2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/4band_44100.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/4band_44100_mid.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/4band_44100_msb.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/4band_44100_msb2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/4band_44100_reverse.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/4band_44100_sw.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/4band_v2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/4band_v2_sn.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/4band_v3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/modelparams/ensemble.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/nets.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/nets_123812KB.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/nets_123821KB.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/nets_33966KB.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/nets_537227KB.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/nets_537238KB.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/nets_61968KB.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/nets_new.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/lib_v5/spec_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/name_params.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/lib/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/mdxnet.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/uvr5_weights/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/vr.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/tools/uvr5/webui.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT_SoVITS/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/configs/augmentation.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/configs/bi_lstm.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/create_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/docs/images/image1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/eval.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/extract_features.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/infer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/mser/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/mser/data_utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/mser/data_utils/collate_fn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/mser/data_utils/featurizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/mser/data_utils/reader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/mser/metric/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/mser/metric/metrics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/mser/optimizer/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/mser/optimizer/scheduler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/mser/predict.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/mser/trainer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/mser/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/mser/utils/checkpoint.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/mser/utils/emotion2vec_predict.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/mser/utils/record.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/mser/utils/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/train.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Video_emotion/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Video_emotion/face_emotion_recognizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Voice_emotion/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Voice_emotion/audio_emotion_recognizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Voice_emotion/output/recorded_audio.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Voice_emotion/output/target.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Voice_emotion/output/transcript.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Voice_emotion/save_audio.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Voice_emotion/whisper_recognition.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datatest/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datatest/output.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datatest/target.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datatest/test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datatest/test.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datatest/uvr5_opt.list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_main.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/videos/angry/angry1.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/videos/angry/angry2.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/videos/disgust/disgust1.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/videos/disgust/disgust2.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/videos/fear/fear1.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/videos/happy/happy1.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/videos/happy/happy2.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/videos/happy/happy3.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/videos/neutral/neutral1.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/videos/sad/sad1.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/videos/sad/sad2.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/videos/sad/sad3.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/videos/sad/sad4.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/videos/surprise/surprise1.mp4" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FastAPI main" />
+        <option value="FastAPI test_main" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2mKndYxK6CEAlQDMgehvFOU2eAR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.infer.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/moqi/Desktop/学习/竞赛/2024海峡两岸/人工智能赛道/IOOI",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": []
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/Videos" />
+      <recent name="$PROJECT_DIR$/GPT_SoVITS" />
+      <recent name="$PROJECT_DIR$/Voice_emotion/output" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/GPT-SoVITS" />
+      <recent name="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.infer">
+    <configuration name="infer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IOOI" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch/infer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="IOOI" type="Python.FastAPI">
+      <option name="file" value="$PROJECT_DIR$/main.py" />
+      <module name="IOOI" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.infer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="e0f2163c-479c-42aa-9972-1a1f5ecb5cc6" name="更改" comment="" />
+      <created>1726834222262</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1726834222262</updated>
+      <workItem from="1726834232232" duration="8115000" />
+      <workItem from="1726907533944" duration="5019000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="IOOI前后端" />
+    <option name="LAST_COMMIT_MESSAGE" value="IOOI前后端" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/IOOI$infer.coverage" NAME="infer 覆盖结果" MODIFIED="1726907946223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SpeechEmotionRecognition-Pytorch" />
+  </component>
+</project>

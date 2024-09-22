@@ -1,1 +1,0 @@
-/Users/moqi/Desktop/竞赛/2024创客赛/emotion-egg/Emotion-Egg/voice_interaction/GPT_SoVITS/models/gpt_weights.pth

@@ -4,16 +4,16 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-from voice_interaction.GPT_SoVITS.module import commons
-from voice_interaction.GPT_SoVITS.module import modules
-from voice_interaction.GPT_SoVITS.module import attentions
+from ..module import commons
+from ..module import modules
+from GPT_SoVITS.module import attentions
 
 from torch.nn import Conv1d, ConvTranspose1d, AvgPool1d, Conv2d
 from torch.nn.utils import weight_norm, remove_weight_norm, spectral_norm
-from voice_interaction.GPT_SoVITS.module.commons import init_weights, get_padding
-from voice_interaction.GPT_SoVITS.module.mrte_model import MRTE
-from voice_interaction.GPT_SoVITS.module.quantize import ResidualVectorQuantizer
-from voice_interaction.GPT_SoVITS.text import symbols
+from GPT_SoVITS.module.commons import init_weights, get_padding
+from GPT_SoVITS.module.mrte_model import MRTE
+from GPT_SoVITS.module.quantize import ResidualVectorQuantizer
+from GPT_SoVITS.text import symbols
 from torch.cuda.amp import autocast
 import contextlib
 

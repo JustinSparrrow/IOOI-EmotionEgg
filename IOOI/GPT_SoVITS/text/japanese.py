@@ -5,8 +5,8 @@ import sys
 import pyopenjtalk
 
 
-from voice_interaction.GPT_SoVITS.text import symbols
-from voice_interaction.GPT_SoVITS.text.symbols import punctuation
+from GPT_SoVITS.text import symbols
+from GPT_SoVITS.text.symbols import punctuation
 # Regular expression matching Japanese without punctuation marks:
 _japanese_characters = re.compile(
     r"[A-Za-z\d\u3005\u3040-\u30ff\u4e00-\u9fff\uff11-\uff19\uff21-\uff3a\uff41-\uff5a\uff66-\uff9d]"

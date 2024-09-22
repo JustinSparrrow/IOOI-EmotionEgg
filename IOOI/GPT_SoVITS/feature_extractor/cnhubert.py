@@ -13,7 +13,7 @@ from transformers import (
     HubertModel,
 )
 
-import utils
+import GPT_SoVITS.utils as utils
 import torch.nn as nn
 
 cnhubert_base_path = '/Users/moqi/Desktop/竞赛/2024创客赛/emotion-egg/Emotion-Egg/voice_interaction/GPT_SoVITS/pretrained_models/chinese-hubert-base'

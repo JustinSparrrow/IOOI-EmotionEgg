@@ -1,4 +1,4 @@
-from voice_interaction.GPT_SoVITS.text.symbols import *
+from GPT_SoVITS.text.symbols import *
 
 
 _symbol_to_id = {s: i for i, s in enumerate(symbols)}

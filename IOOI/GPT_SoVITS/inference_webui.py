@@ -24,23 +24,23 @@ if os.path.exists("gweight.txt"):
             "gpt_path", gweight_data)
 else:
     gpt_path = os.environ.get(
-        "gpt_path", "/Users/moqi/Desktop/竞赛/2024创客赛/emotion-egg/Emotion-Egg/voice_interaction/GPT_SoVITS/pretrained_models/s1bert25hz-2kh-longer-epoch=68e-step=50232.ckpt")
+        "gpt_path", "GPT_SoVITS/pretrained_models/s1bert25hz-2kh-longer-epoch=68e-step=50232.ckpt")
 
 if os.path.exists("sweight.txt"):
     with open("sweight.txt", 'r', encoding="utf-8") as file:
         sweight_data = file.read()
         sovits_path = os.environ.get("sovits_path", sweight_data)
 else:
-    sovits_path = os.environ.get("sovits_path", "/Users/moqi/Desktop/竞赛/2024创客赛/emotion-egg/Emotion-Egg/voice_interaction/GPT_SoVITS/pretrained_models/s2G488k.pth")
+    sovits_path = os.environ.get("sovits_path", "GPT_SoVITS/pretrained_models/s2G488k.pth")
 # gpt_path = os.environ.get(
 #     "gpt_path", "pretrained_models/s1bert25hz-2kh-longer-epoch=68e-step=50232.ckpt"
 # )
 # sovits_path = os.environ.get("sovits_path", "pretrained_models/s2G488k.pth")
 cnhubert_base_path = os.environ.get(
-    "cnhubert_base_path", "/Users/moqi/Desktop/竞赛/2024创客赛/emotion-egg/Emotion-Egg/voice_interaction/GPT_SoVITS/pretrained_models/chinese-hubert-base"
+    "cnhubert_base_path", "GPT_SoVITS/pretrained_models/chinese-hubert-base"
 )
 bert_path = os.environ.get(
-    "bert_path", "/Users/moqi/Desktop/竞赛/2024创客赛/emotion-egg/Emotion-Egg/voice_interaction/GPT_SoVITS/pretrained_models/chinese-roberta-wwm-ext-large"
+    "bert_path", "GPT_SoVITS/pretrained_models/chinese-roberta-wwm-ext-large"
 )
 infer_ttswebui = os.environ.get("infer_ttswebui", 9872)
 infer_ttswebui = int(infer_ttswebui)
@@ -54,18 +54,18 @@ import gradio as gr
 from transformers import AutoModelForMaskedLM, AutoTokenizer
 import numpy as np
 import librosa
-from voice_interaction.GPT_SoVITS.feature_extractor import cnhubert
+from .feature_extractor import cnhubert
 
 cnhubert.cnhubert_base_path = cnhubert_base_path
 
-from voice_interaction.GPT_SoVITS.module.models import SynthesizerTrn
-from voice_interaction.GPT_SoVITS.AR.models.t2s_lightning_module import Text2SemanticLightningModule
-from voice_interaction.GPT_SoVITS.text import cleaned_text_to_sequence
-from voice_interaction.GPT_SoVITS.text.cleaner import clean_text
+from .module.models import SynthesizerTrn
+from .AR.models.t2s_lightning_module import Text2SemanticLightningModule
+from .text import cleaned_text_to_sequence
+from .text.cleaner import clean_text
 from time import time as ttime
-from voice_interaction.GPT_SoVITS.module.mel_processing import spectrogram_torch
-from voice_interaction.tools.my_utils import load_audio
-from voice_interaction.tools.i18n.i18n import I18nAuto
+from .module.mel_processing import spectrogram_torch
+from .tools.my_utils import load_audio
+from .tools.i18n.i18n import I18nAuto
 
 i18n = I18nAuto()
 
@@ -235,7 +235,7 @@ def get_first(text):
     text = re.split(pattern, text)[0].strip()
     return text
 
-from voice_interaction.GPT_SoVITS.text import chinese
+from GPT_SoVITS.text import chinese
 def get_phones_and_bert(text,language):
     if language in {"en","all_zh","all_ja"}:
         language = language.replace("all_","")

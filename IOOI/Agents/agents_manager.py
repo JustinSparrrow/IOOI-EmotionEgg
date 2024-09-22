@@ -1,4 +1,4 @@
-from emotion_agents import AngryAgent, DisgustAgent, FearAgent, HappyAgent, NeutralAgent, SadAgent, SurpriseAgent
+from .emotion_agents import AngryAgent, DisgustAgent, FearAgent, HappyAgent, NeutralAgent, SadAgent, SurpriseAgent
 import random
 import time
 

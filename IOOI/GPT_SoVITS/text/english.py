@@ -4,9 +4,9 @@ import re
 import wordsegment
 from g2p_en import G2p
 
-from voice_interaction.GPT_SoVITS.text.symbols import punctuation
+from GPT_SoVITS.text.symbols import punctuation
 
-from voice_interaction.GPT_SoVITS.text import symbols
+from GPT_SoVITS.text import symbols
 
 import unicodedata
 from builtins import str as unicode

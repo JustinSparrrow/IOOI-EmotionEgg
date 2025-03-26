@@ -1,0 +1,167 @@
+/* 🌈 全局样式 */
+body {
+    background: linear-gradient(to bottom, #fef3f7, #e9d5ff);
+    color: #4a4a4a;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 🔹 导航栏 */
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: white;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #FF90BC;
+}
+
+.nav-link {
+    margin-right: 1rem;
+    color: #C3A6FF;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #8A74D3;
+}
+
+.nav-button {
+    background-color: #FF90BC;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #ff6b9b;
+}
+
+/* 🏠 主要内容 */
+.main-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* 🏆 标题样式 */
+.page-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FF90BC;
+}
+
+/* 🎭 情绪小人 */
+.emotion-avatar {
+    width: 8rem;
+    height: 8rem;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: auto;
+}
+
+/* 📈 图表容器 */
+.chart-container {
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 📅 选择器 */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.filter-buttons button {
+    background-color: #ddd;
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.filter-buttons button:hover {
+    background-color: #bbb;
+}
+
+.time-selector {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.query-button {
+    background-color: #FF90BC;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.query-button:hover {
+    background-color: #ff6b9b;
+}
+
+/* ☄️ 陨石容器 */
+.meteor-container {
+    width: 10rem;
+    height: 10rem;
+    background: #ccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    margin: auto;
+}
+
+/* 🔹 页脚 */
+.footer {
+    text-align: center;
+    padding: 1rem;
+    background: white;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* 🌟 查询按钮样式 */
+.query-button {
+    background-color: #FF4B91;  /* 深粉色，增强对比度 */
+    color: white;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+}
+
+.query-button:hover {
+    background-color: #E83E80; /* 更深的粉色 */
+    transform: scale(1.05);
+}
+
+.query-button:active {
+    background-color: #D13670; /* 点击时变更颜色 */
+    transform: scale(0.98);
+}

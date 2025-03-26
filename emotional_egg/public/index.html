@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodWhisper</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;600&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+        }
+        .handwriting {
+            font-family: 'Dancing Script', cursive;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-b from-pink-50 to-purple-100 text-gray-800">
+
+        <!-- 导航栏 -->
+        <nav class="flex justify-between items-center p-4 bg-white shadow-md">
+            <h1 class="text-xl font-bold text-primary">MoodWhisper</h1>
+            <div>
+                <a href="login.html" class="bg-primary text-black px-4 py-2 rounded-lg hover:bg-pink-400">登录</a>
+                <a href="register.html" class="bg-primary text-black px-4 py-2 rounded-lg hover:bg-pink-400">注册</a>
+            </div>
+        </nav>
+    <!-- 主页内容 -->
+    <section class="text-center py-20 relative">
+        <img src="public/images/bg-illustration.png" class="absolute inset-0 w-full h-full object-cover opacity-30">
+        <div class="relative">
+            <h2 class="text-5xl font-bold text-primary">接纳你的情绪，发现更好的自己</h2>
+            <p class="text-lg text-gray-600 mt-4">一个安全、私密、温暖的空间，让你表达情绪并找到共鸣</p>
+            <a href="dashboard.html" id="get-started-btn" class="get-started-btn">
+                Get Started
+                <div class="dots">
+                    <div class="dot dot1"></div>
+                    <div class="dot dot2"></div>
+                    <div class="dot dot3"></div>
+                    <div class="dot dot4"></div>
+                    <div class="dot dot5"></div>
+                    <div class="dot dot6"></div>
+                    <div class="dot dot7"></div>
+                </div>
+            </a>   
+        </div>
+    </section>
+
+    <!-- 介绍区 -->
+    <section id="intro-section" class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 px-10">
+        <!-- 情绪可视化 -->
+        <div class="intro-box bg-white p-6 rounded-xl shadow-lg text-center">
+            <h3 class="intro-title text-lg font-semibold">📊 情绪可视化</h3>
+            <img src="src/assets/visualization.png" alt="情绪可视化" class="mx-auto mt-4 w-24 h-24 object-contain">
+            <p class="text-gray-600 mt-2">使用数据可视化分析你的情绪变化趋势</p>
+        </div>
+
+        <!-- 社区互动 -->
+        <div class="intro-box bg-white p-6 rounded-xl shadow-lg text-center">
+            <h3 class="intro-title text-lg font-semibold">💬 社区互动</h3>
+            <img src="src/assets/community.png" alt="社区互动" class="mx-auto mt-4 w-24 h-24 object-contain">
+            <p class="text-gray-600 mt-2">在温暖的社区中分享你的情绪，获取共鸣</p>
+        </div>
+
+        <!-- 私密日记 -->
+        <div class="intro-box bg-white p-6 rounded-xl shadow-lg text-center">
+            <h3 class="intro-title text-lg font-semibold">🔒 私密日记</h3>
+            <img src="src/assets/private_diary.png" alt="私密日记" class="mx-auto mt-4 w-24 h-24 object-contain">
+            <p class="text-gray-600 mt-2">你的情绪数据完全私密，只有你自己可以访问</p>
+        </div>
+    </section>
+
+
+    <!-- 页脚 -->
+    <footer class="text-center p-4 bg-white shadow-md mt-10">
+        <p class="text-gray-500">&copy; 2025 MoodWhisper</p>
+    </footer>
+
+</body>
+</html>
+
+<style>
+/* GetStart按钮格式 */
+.get-started-btn {
+  width: 180px;
+  height: 54px; 
+  margin-top: 20px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  box-sizing: border-box;
+  border-radius: 30px;
+  border: 3px solid #000;
+  transition: all 0.3s ease;
+  text-align: center;
+  background-color: #C084FC; 
+  line-height: 54px;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.get-started-btn .dot {
+  position: absolute;
+  transition: transform calc(var(--speed) / 14) ease;
+  width: var(--size);
+  height: var(--size);
+  transform: translate(var(--starting-x), var(--starting-y));
+  z-index: 2;
+}
+
+.get-started-btn .dot::after {
+  content: '';
+  animation: hoverFirefly var(--speed) infinite, hoverFireFlicker calc(var(--speed) / 3) infinite calc(var(--speed) / 3);
+  animation-play-state: paused;
+  display: block;
+  border-radius: 100%;
+  background:  #C084FC;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 0px 6px 0px #F9A8D4, 0px 0px 4px 0px #C084FC inset, 0px 0px 2px 1px #C084FC;
+}
+
+.get-started-btn .dot1 {
+  --speed: 14s;
+  --size: 6px;
+  --starting-x: 30px;
+  --starting-y: 20px;
+  top: 3px;
+  left: -14px;
+  opacity: 0.7;
+}
+
+.get-started-btn .dot2 {
+  --speed: 16s;
+  --size: 3px;
+  --starting-x: 40px;
+  --starting-y: 10px;
+  top: 0px;
+  left: -4px;
+  opacity: 0.7;
+}
+
+.get-started-btn .dot3 {
+  --speed: 20s;
+  --size: 4px;
+  --starting-x: -10px;
+  --starting-y: 20px;
+  top: -8px;
+  right: 14px;
+}
+
+.get-started-btn .dot4 {
+  --speed: 18s;
+  --size: 2px;
+  --starting-x: -30px;
+  --starting-y: -5px;
+  bottom: 4px;
+  right: -14px;
+  opacity: 0.9;
+}
+
+.get-started-btn .dot5 {
+  --speed: 22s;
+  --size: 5px;
+  --starting-x: -40px;
+  --starting-y: -20px;
+  bottom: -6px;
+  right: -3px;
+}
+
+.get-started-btn .dot6 {
+  --speed: 15s;
+  --size: 4px;
+  --starting-x: 12px;
+  --starting-y: -18px;
+  bottom: -12px;
+  left: 30px;
+  opacity: 0.7;
+}
+
+.get-started-btn .dot7 {
+  --speed: 19s;
+  --size: 3px;
+  --starting-x: 6px;
+  --starting-y: -20px;
+  bottom: -16px;
+  left: 44px;
+}
+
+/* 按钮的 hover 状态 */
+.get-started-btn:hover {
+  transform: scale(1.05);
+  background-color: #D8B4FE;
+  box-shadow: 0px 0px 20px 5px rgba(216, 180, 254, 0.7);
+  .dot {
+    transform: translate(0, 0);
+    &::after {
+      animation-play-state: running;
+    }
+  }
+
+  .get-started-btn {
+    span {
+      letter-spacing: 4px;
+    }
+
+    &::before,
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes hoverFirefly {
+  0% {
+    transform: translate(0, 0);
+  }
+  12% {
+    transform: translate(4px, 2px);
+  }
+  24% {
+    transform: translate(-3px, 4px);
+  }
+  37% {
+    transform: translate(3px, -3px);
+  }
+  55% {
+    transform: translate(-2px, 0);
+  }
+  74% {
+    transform: translate(0, 3px);
+  }
+  88% {
+    transform: translate(-4px, -2px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes hoverFireFlicker {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  75% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+</style>
+    

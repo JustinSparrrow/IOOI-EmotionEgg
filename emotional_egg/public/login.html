@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - MoodWhisper</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+        }
+        .handwriting {
+            font-family: 'Dancing Script', cursive;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-pink-50 to-purple-100 text-gray-800">
+
+    <!-- 导航栏 -->
+    <nav class="flex justify-between items-center p-4 bg-white shadow-md">
+        <h1 class="text-xl font-bold text-primary">MoodWhisper</h1>
+        <div>
+            <a href="index.html" class="bg-primary text-black px-4 py-2 rounded-lg hover:bg-pink-400 shadow-lg transform hover:scale-105 transition">返回</a>
+        </div>
+    </nav>
+    <!-- 登录框 -->
+    <div class="max-w-md mx-auto mt-20 bg-white p-8 rounded-xl shadow-xl">
+        <h2 class="text-3xl font-semibold text-center text-primary">欢迎回来</h2>
+        <p class="text-gray-600 text-center mt-2">请登录继续使用 MoodWhisper</p>
+
+        <!-- 登录表单 -->
+        <div class="mt-6">
+            <label class="block text-sm font-semibold">用户名</label>
+            <input type="text" id="username" class="w-full border p-3 mt-2 rounded-lg" placeholder="输入用户名" required>
+
+            <label class="block text-sm font-semibold mt-4">密码</label>
+            <input type="password" id="password" class="w-full border p-3 mt-2 rounded-lg" placeholder="输入密码" required>
+
+            <button id="login-btn" class="w-full bg-primary text-white px-4 py-2 rounded-lg mt-4 bg-pink-400  shadow-lg transform hover:scale-105 transition">登录</button>
+        </div>
+
+        <p class="text-center text-sm text-gray-600 mt-4">
+            还没有账号？<a href="register.html" class="text-blue-500 hover:underline ">立即注册 </a>
+        </p>
+    </div>
+    <!-- 页脚 -->
+    <footer class="text-center p-4 bg-white shadow-md mt-10">
+        <p class="text-gray-500">&copy; 2025 MoodWhisper</p>
+    </footer>
+    <script src="src/js/auth.js"></script>
+    <script type="module">
+        import { login } from "./src/js/auth.js";
+      
+        document.getElementById("login-btn").addEventListener("click", async () => {
+          const username = document.getElementById("username").value.trim();
+          const password = document.getElementById("password").value.trim();
+          const success = await login(username, password);
+          if (success) window.location.href = "dashboard.html";
+        });
+      </script>
+</body>
+</html>

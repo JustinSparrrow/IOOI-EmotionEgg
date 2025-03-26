@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心 - MoodWhisper</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+        }
+        .handwriting {
+            font-family: 'Dancing Script', cursive;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-pink-50 to-purple-100 text-gray-800">
+
+    <!-- 导航栏 -->
+    <nav class="flex justify-between items-center p-4 bg-white shadow-md">
+        <h1 class="text-xl font-bold text-primary">MoodWhisper</h1>
+        <div>
+            <a href="dashboard.html" class="bg-primary text-black px-4 py-2 rounded-lg hover:bg-pink-400">返回日志</a>
+            <a href="community.html" class="bg-primary text-black px-4 py-2 rounded-lg hover:bg-pink-400">前往社区</a>
+            <a href="index.html" class="bg-primary text-black px-4 py-2 rounded-lg hover:bg-pink-400">退出</a>
+        </div>
+    </nav>
+
+    <!-- 个人中心框 -->
+    <div class="max-w-3xl mx-auto mt-10 bg-white p-8 rounded-xl shadow-xl">
+        <h2 class="text-3xl font-semibold text-center text-primary">个人中心</h2>
+
+        <!-- 用户信息 -->
+        <div class="flex items-center mt-6">
+            <img src="src/assets/default-avatar.png" alt="头像" class="w-24 h-24 rounded-full object-cover">
+            <div class="ml-6">
+                <div class="text-2xl font-semibold" id="user-name">加载中...</div>
+                <div class="text-gray-500 text-sm" id="user-email">加载中...</div>
+                <p class="text-sm mt-2" id="user-intro">加载中...</p>
+            </div>
+        </div>
+
+        <!-- 累计日记条数 -->
+        <div class="mt-8">
+            <h3 class="text-xl font-semibold">📖 累计日记条数</h3>
+            <p id="diary-count" class="text-gray-700 text-lg mt-2">加载中...</p>
+        </div>
+
+        <!-- 近期情绪趋势 -->
+        <div class="mt-8">
+            <h3 class="text-xl font-semibold">📈 近期情绪趋势</h3>
+            <div id="emotion-trend" class="w-full mt-4">
+                <!-- 图表区域 -->
+                <canvas id="emotion-trend-chart" class="w-full h-64"></canvas>
+            </div>
+        </div>
+
+        <!-- 情绪统计 -->
+        <div class="mt-8">
+            <h3 class="text-xl font-semibold">💖 情绪统计</h3>
+            <div id="emotion-statistics" class="mt-4">
+                <!-- 图表区域 -->
+                <canvas id="emotion-statistics-chart" class="w-full h-64"></canvas>
+            </div>
+        </div>
+
+        <!-- 编辑资料按钮 -->
+        <div class="mt-8 flex justify-center">
+            <button id="edit-profile-btn" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-400">编辑资料</button>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="text-center p-4 bg-white shadow-md mt-10">
+        <p class="text-gray-500">&copy; 2025 MoodWhisper</p>
+    </footer>
+
+    <script src="src/js/profile.js"></script>
+</body>
+</html>

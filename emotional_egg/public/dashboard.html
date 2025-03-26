@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodWhisper</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;600&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+        }
+        .handwriting {
+            font-family: 'Dancing Script', cursive;
+        }
+    </style>
+
+</head>
+<body class="bg-gradient-to-b from-pink-50 to-purple-100 text-gray-800">
+    <!-- 导航栏 -->
+    <nav class="flex justify-between items-center p-4 bg-white shadow-md">
+        <h1 class="text-xl font-bold text-primary">MoodWhisper</h1>
+        <div>
+            <a href="community.html" class="text-secondary hover:underline mr-4">社区</a>
+            <a href="profile.html" class="text-secondary hover:underline mr-4">个人中心</a>
+            <a href="index.html" class="bg-primary text-black px-4 py-2 rounded-lg hover:bg-pink-400">退出</a>
+        </div>
+    </nav>
+
+    <!-- 页面主体 -->
+    <main class="container mx-auto px-6 py-10">
+        <h2 class="text-3xl font-bold text-primary text-center">情绪日志</h2>
+
+        <!-- 专属情绪小人 -->
+        <section class="mt-8 text-center">
+            <h3 class="text-xl font-semibold">你的情绪小人</h3>
+            <div id="emotion-avatar" class="w-32 h-32 mx-auto mt-4 bg-white rounded-full shadow-lg flex items-center justify-center text-4xl">
+                🎉
+            </div>
+            <p class="text-gray-600 mt-2">⬆️生成的情绪小人渲染到这里吧</p>
+        </section>
+        <!-- 情绪趋势 -->
+        <section class="mt-8 text-center">
+            <h3 class="text-xl font-semibold">情绪趋势</h3>
+
+            <!-- 选择查询方式 -->
+            <div class="mt-4 flex justify-center space-x-4">
+                <button onclick="setTimeFilter('year')" class="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300">年</button>
+                <button onclick="setTimeFilter('month')" class="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300">月</button>
+                <button onclick="setTimeFilter('week')" class="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300">周</button>
+                <button onclick="setTimeFilter('day')" class="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300">日</button>
+            </div>
+
+            <!-- 日期选择器 -->
+            <div class="mt-4 flex flex-wrap justify-center gap-4">
+                <!-- 年选择 -->
+                <select id="year-selector" class="border border-gray-300 px-3 py-2 rounded-lg shadow-sm hidden"></select>
+
+                <!-- 月选择 -->
+                <select id="month-selector" class="border border-gray-300 px-3 py-2 rounded-lg shadow-sm hidden"></select>
+
+                <!-- 周选择 -->
+                <select id="week-selector" class="border border-gray-300 px-3 py-2 rounded-lg shadow-sm hidden"></select>
+
+                <!-- 日选择 -->
+                <input type="date" id="date-selector" class="border border-gray-300 px-3 py-2 rounded-lg shadow-sm hidden">
+                
+                <!-- 查询按钮 -->
+                <button onclick="updateChartWithSelection()" class="query-button">
+                    查询
+                </button>
+                
+            </div>
+                <!-- 图表区域 -->
+                <div id="chart-container" class="mt-6 bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl mx-auto hidden">
+                    <canvas id="emotion-chart" class="w-full h-96"></canvas>
+                </div>
+            </section>
+ 
+
+        <!-- 雕刻情绪陨石 -->
+        <section class="mt-8 text-center">
+            <h3 class="text-xl font-semibold">雕刻你的情绪陨石</h3>
+            <div id="meteor-container" class="w-40 h-40 mx-auto mt-4 bg-gray-300 rounded-full shadow-lg flex items-center justify-center">
+                🚀
+            </div>
+            <p class="text-gray-600 mt-2">⬆️搭建一个3D的陨石出来还在探索</p>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="text-center p-4 bg-white shadow-md mt-10">
+        <p class="text-gray-500">&copy; 2025 MoodWhisper</p>
+    </footer>
+
+    <!-- 引入 Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="src/js/dashboard.js"></script>
+    <!-- 确保 GSAP 依赖 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- 引入动画 -->
+    <script src="src/js/gsap-animations.js"></script>
+
+</body>
+</html>
+
+<style>
+.query-button {
+    background-color: #FF4B91; 
+    color: white;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+}
+
+.query-button:hover {
+    background-color: #E83E80; 
+    transform: scale(1.05);
+}
+
+.query-button:active {
+    background-color: #D13670; 
+    transform: scale(0.98);
+}
+
+/* 图表区域默认隐藏 */
+#chart-container {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+#chart-container.show {
+    opacity: 1;
+    transform: translateY(0);
+}

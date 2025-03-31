@@ -46,13 +46,33 @@
         <!-- 情绪趋势 -->
         <section class="mt-8 text-center">
             <h3 class="text-xl font-semibold">情绪趋势</h3>
-
-            <!-- 选择查询方式 -->
-            <div class="mt-4 flex justify-center space-x-4">
-                <button onclick="setTimeFilter('year')" class="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300">年</button>
-                <button onclick="setTimeFilter('month')" class="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300">月</button>
-                <button onclick="setTimeFilter('week')" class="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300">周</button>
-                <button onclick="setTimeFilter('day')" class="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300">日</button>
+            <div class="mt-6 flex justify-center space-x-6">
+                <!-- 选择查询方式按钮 -->
+                <button id="btn-year" class="px-6 py-3 bg-gradient-to-br from-rose-500 to-pink-600 text-white font-semibold rounded-xl 
+                shadow-md hover:shadow-lg transition-all duration-200 
+                transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-opacity-75 
+                active:scale-95 active:from-pink-700 tracking-wide">
+                年
+            </button>
+            <button id="btn-month" class="px-6 py-3 bg-gradient-to-br from-rose-500 to-pink-600 text-white font-semibold rounded-xl 
+                shadow-md hover:shadow-lg transition-all duration-200 
+                transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-opacity-75 
+                active:scale-95 active:from-pink-700 tracking-wide">
+                月
+            </button>
+            <button id="btn-week" class="px-6 py-3 bg-gradient-to-br from-rose-500 to-pink-600 text-white font-semibold rounded-xl 
+                shadow-md hover:shadow-lg transition-all duration-200 
+                transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-opacity-75 
+                active:scale-95 active:from-pink-700 tracking-wide">
+                周
+            </button>
+            <button id="btn-day" class="px-6 py-3 bg-gradient-to-br from-rose-500 to-pink-600 text-white font-semibold rounded-xl 
+                shadow-md hover:shadow-lg transition-all duration-200 
+                transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-opacity-75 
+                active:scale-95 active:from-pink-700 tracking-wide">
+                日
+            </button>
+            
             </div>
 
             <!-- 日期选择器 -->
@@ -70,10 +90,8 @@
                 <input type="date" id="date-selector" class="border border-gray-300 px-3 py-2 rounded-lg shadow-sm hidden">
                 
                 <!-- 查询按钮 -->
-                <button onclick="updateChartWithSelection()" class="query-button">
-                    查询
-                </button>
-                
+                <button id="query-button" class="query-button bg-gradient-to-br from-rose-500 to-pink-600 ">查询</button>    
+                                
             </div>
                 <!-- 图表区域 -->
                 <div id="chart-container" class="mt-6 bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl mx-auto hidden">
@@ -99,13 +117,7 @@
 
     <!-- 引入 Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="src/js/dashboard.js"></script>
-    <!-- 确保 GSAP 依赖 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-    <!-- 引入动画 -->
-    <script src="src/js/gsap-animations.js"></script>
+    <script  type="module" src="src/js/dashboard.js"></script>
 
 </body>
 </html>

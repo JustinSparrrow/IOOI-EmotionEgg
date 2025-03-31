@@ -34,7 +34,7 @@ func InitDB() {
 	}
 
 	// 自动迁移模型
-	err = db.AutoMigrate(&model.User{}, &model.EmotionLog{}, &model.EmotionInteraction{}, &model.CommunityPost{}, &model.Comment{})
+	err = db.AutoMigrate(&model.User{}, &model.EmotionInteraction{}, &model.CommunityPost{}, &model.Comment{})
 	if err != nil {
 		log.Fatal("migration failed: ", err)
 	}

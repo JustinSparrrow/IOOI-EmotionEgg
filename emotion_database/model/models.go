@@ -12,17 +12,6 @@ type User struct {
 	Avatar    string // Added Avatar field
 }
 
-type EmotionLog struct {
-	ID           uint `gorm:"primaryKey"`
-	UserID       uint `gorm:"not null"`
-	VideoPath    string
-	AudioPath    string
-	EmotionState int `gorm:"check:emotion_state >= 1 AND emotion_state <= 4"`
-	NetworkState string
-	WeekInMonth  int
-	Timestamp    time.Time `gorm:"autoCreateTime"`
-}
-
 type EmotionInteraction struct {
 	ID           uint      `gorm:"primaryKey"`
 	UserID       uint      `gorm:"not null"`
@@ -31,6 +20,7 @@ type EmotionInteraction struct {
 	AudioPath    string    // 系统生成音频
 	EmotionLabel string    // 情绪标签（如 joy, sad, angry）
 	Suggestion   string    // AI agent 提议
+	NetworkState string    // 网络状态（例如 "wifi", "4g", "offline"）
 	Timestamp    time.Time `gorm:"autoCreateTime"`
 	WeekInMonth  int       // 属于该月的第几周
 }

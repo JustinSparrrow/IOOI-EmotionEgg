@@ -96,28 +96,23 @@ func GetDominantEmotionByTime(c *gin.Context) {
 		return
 	}
 
-	var labels []string
-	var data []map[string]int
-
-	type Result struct {
+	var results []struct {
 		Label        string
 		EmotionLabel string
 	}
-
-	var results []Result
 	query := database.DB.Model(&model.EmotionInteraction{}).Where("user_id = ?", userID)
 
 	switch filter {
 	case "year":
 		query = query.Where("emotion_label IS NOT NULL AND emotion_label != ''").
-			Select("TO_CHAR(timestamp, 'YYYY') AS label, mode() WITHIN GROUP (ORDER BY emotion_label) AS emotion_label").
+			Select("TO_CHAR(timestamp, 'YYYY-MM') AS label, mode() WITHIN GROUP (ORDER BY emotion_label) AS emotion_label").
 			Group("label").
 			Order("label")
 
 	case "month":
 		query = query.Where("emotion_label IS NOT NULL AND emotion_label != ''").
 			Where("EXTRACT(YEAR FROM timestamp) = ? AND EXTRACT(MONTH FROM timestamp) = ?", year, month).
-			Select("TO_CHAR(timestamp, 'YYYY-MM') AS label, mode() WITHIN GROUP (ORDER BY emotion_label) AS emotion_label").
+			Select("CONCAT('Week ', week_in_month) AS label, mode() WITHIN GROUP (ORDER BY emotion_label) AS emotion_label").
 			Group("label").
 			Order("label")
 
@@ -138,7 +133,7 @@ func GetDominantEmotionByTime(c *gin.Context) {
 		}
 		query = query.Where("emotion_label IS NOT NULL AND emotion_label != ''").
 			Where("EXTRACT(YEAR FROM timestamp) = ? AND EXTRACT(MONTH FROM timestamp) = ?", year, month).
-			Select("CONCAT('Week ', week_in_month) AS label, mode() WITHIN GROUP (ORDER BY emotion_label) AS emotion_label").
+			Select("TO_CHAR(timestamp, 'YYYY-MM-DD') AS label, mode() WITHIN GROUP (ORDER BY emotion_label) AS emotion_label").
 			Group("label").
 			Order("label")
 
@@ -153,26 +148,17 @@ func GetDominantEmotionByTime(c *gin.Context) {
 	}
 
 	if len(results) == 0 {
-		c.JSON(http.StatusOK, gin.H{"labels": []string{}, "data": []map[string]int{}})
+		c.JSON(http.StatusOK, gin.H{"data": map[string]string{}})
 		return
 	}
 
-	emotionCount := make(map[string]map[string]int)
+	emotionData := make(map[string]string)
 	for _, r := range results {
-		if _, exists := emotionCount[r.Label]; !exists {
-			emotionCount[r.Label] = make(map[string]int)
-		}
-		emotionCount[r.Label][r.EmotionLabel]++
-	}
-
-	for hour, emotions := range emotionCount {
-		labels = append(labels, hour)
-		data = append(data, emotions)
+		emotionData[r.Label] = r.EmotionLabel
 	}
 
 	c.JSON(http.StatusOK, gin.H{
-		"labels": labels,
-		"data":   data,
+		"data": emotionData,
 	})
 }
 

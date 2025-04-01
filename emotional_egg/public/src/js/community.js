@@ -180,3 +180,12 @@ function showError(message) {
     // 初始加载
     loadAndRefresh();
 });
+
+    // 初始化
+
+document.getElementById("logout-btn").addEventListener("click", () => {
+    localStorage.removeItem("token");  // 清除JWT
+    alert("您已成功退出登录！");
+    window.location.href = "index.html";  //返回主页面
+  });
+

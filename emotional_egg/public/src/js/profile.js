@@ -9,6 +9,8 @@ const diaryCountEl = document.getElementById('diary-count');
 const emotionTrendCanvas = document.getElementById('emotion-trend-chart');
 const emotionStatisticsCanvas = document.getElementById('emotion-statistics-chart');
 const editProfileBtn = document.getElementById('edit-profile-btn');
+const userAvatarEl = document.getElementById('user-avatar');
+
 
 function getEmotionFromScore(score) {
   switch (score) {
@@ -28,6 +30,8 @@ async function loadUserProfile() {
       }
     });
     const data = await res.json();
+    
+    userAvatarEl.src = data.avatar || 'src/assets/default-avatar.png';
     userNameEl.textContent = data.username || '未知用户';
     userEmailEl.textContent = data.email || '无邮箱';
     userIntroEl.textContent = data.signature || '这个人很神秘，没有留下任何签名。';
@@ -39,6 +43,7 @@ async function loadUserProfile() {
 
 async function loadEmotionTrend() {
   try {
+    
     const res = await fetch(`${baseURL}/api/emotions?filter=week`, {
       headers: {
         'Authorization': 'Bearer ' + getToken()
@@ -119,4 +124,11 @@ document.addEventListener('DOMContentLoaded', () => {
   editProfileBtn.addEventListener('click', () => {
     window.location.href = 'profile-edit.html';
   });
+});
+
+
+document.getElementById("logout-btn").addEventListener("click", () => {
+  localStorage.removeItem("token");  // 清除JWT
+  alert("您已成功退出登录！");
+  window.location.href = "index.html";  //返回主页面
 });

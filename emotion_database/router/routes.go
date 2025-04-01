@@ -28,9 +28,10 @@ func SetupRouter() *gin.Engine {
 
 	api := r.Group("/api")
 	{
+		api.GET("/emotion/all", controller.GetAllEmotions)
 		api.POST("/emotion/upload", controller.UploadEmotion)
 		api.GET("/emotion-years", controller.GetEmotionYears)
-		api.GET("/emotions", controller.GetEmotionStats)
+		api.GET("/emotions/dominant", controller.GetDominantEmotionByTime)
 	}
 
 	user := r.Group("/user")
@@ -44,8 +45,6 @@ func SetupRouter() *gin.Engine {
 	{
 		protected.GET("/user/profile", controller.GetProfile)
 		protected.PUT("/user/profile", controller.UpdateProfile)
-		protected.POST("/create", controller.CreateEmotionLog)
-		protected.GET("/list", controller.ListEmotionLogs)
 		protected.POST("/community/post", controller.CreateCommunityPost)
 		protected.GET("/community/posts", controller.GetCommunityPosts)
 		protected.GET("/user/lastInteraction", controller.GetLatestInteraction)

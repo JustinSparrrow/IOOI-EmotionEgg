@@ -130,6 +130,7 @@ func GetProfile(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"username":  user.Username,
 		"signature": user.Signature,
+		"email": user.Email,
 		"avatar":    user.Avatar,
 		"log_count": count,
 	})

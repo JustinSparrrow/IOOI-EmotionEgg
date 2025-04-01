@@ -11,7 +11,7 @@
         body {
             font-family: 'Poppins', sans-serif;
         }
-        h1, h2 {
+        h1, h2,h3 {
             font-family: 'Playfair Display', serif;
         }
         .handwriting {
@@ -27,12 +27,15 @@
         <div>
             <a href="community.html" class="text-secondary hover:underline mr-4">社区</a>
             <a href="profile.html" class="text-secondary hover:underline mr-4">个人中心</a>
-            <a href="index.html" class="bg-primary text-black px-4 py-2 rounded-lg hover:bg-pink-400">退出</a>
+            <button id="logout-btn" class="bg-primary text-black px-4 py-2 rounded-lg hover:bg-pink-400">
+                退出
+            </button>
+            
         </div>
     </nav>
 
     <!-- 页面主体 -->
-    <main class="container mx-auto px-6 py-10">
+    <main class="container mx-auto px-6 py-10 space-y-12">
         <h2 class="text-3xl font-bold text-primary text-center">情绪日志</h2>
 
         <!-- 专属情绪小人 -->
@@ -41,18 +44,37 @@
             <div id="emotion-avatar" class="w-32 h-32 mx-auto mt-4 bg-white rounded-full shadow-lg flex items-center justify-center text-4xl">
                 🎉
             </div>
-            <p class="text-gray-600 mt-2">⬆️生成的情绪小人渲染到这里吧</p>
         </section>
         <!-- 情绪趋势 -->
         <section class="mt-8 text-center">
             <h3 class="text-xl font-semibold">情绪趋势</h3>
-
-            <!-- 选择查询方式 -->
-            <div class="mt-4 flex justify-center space-x-4">
-                <button onclick="setTimeFilter('year')" class="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300">年</button>
-                <button onclick="setTimeFilter('month')" class="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300">月</button>
-                <button onclick="setTimeFilter('week')" class="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300">周</button>
-                <button onclick="setTimeFilter('day')" class="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300">日</button>
+            <div class="mt-6 flex justify-center space-x-6">
+                <!-- 选择查询方式按钮 -->
+                <button id="btn-year" class="px-6 py-3 bg-gradient-to-br from-rose-500 to-pink-600 text-white font-semibold rounded-xl 
+                shadow-md hover:shadow-lg transition-all duration-200 
+                transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-opacity-75 
+                active:scale-95 active:from-pink-700 tracking-wide">
+                年
+            </button>
+            <button id="btn-month" class="px-6 py-3 bg-gradient-to-br from-rose-500 to-pink-600 text-white font-semibold rounded-xl 
+                shadow-md hover:shadow-lg transition-all duration-200 
+                transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-opacity-75 
+                active:scale-95 active:from-pink-700 tracking-wide">
+                月
+            </button>
+            <button id="btn-week" class="px-6 py-3 bg-gradient-to-br from-rose-500 to-pink-600 text-white font-semibold rounded-xl 
+                shadow-md hover:shadow-lg transition-all duration-200 
+                transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-opacity-75 
+                active:scale-95 active:from-pink-700 tracking-wide">
+                周
+            </button>
+            <button id="btn-day" class="px-6 py-3 bg-gradient-to-br from-rose-500 to-pink-600 text-white font-semibold rounded-xl 
+                shadow-md hover:shadow-lg transition-all duration-200 
+                transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-opacity-75 
+                active:scale-95 active:from-pink-700 tracking-wide">
+                日
+            </button>
+            
             </div>
 
             <!-- 日期选择器 -->
@@ -70,15 +92,21 @@
                 <input type="date" id="date-selector" class="border border-gray-300 px-3 py-2 rounded-lg shadow-sm hidden">
                 
                 <!-- 查询按钮 -->
-                <button onclick="updateChartWithSelection()" class="query-button">
-                    查询
-                </button>
-                
+                <button id="query-button" class="query-button bg-gradient-to-br from-rose-500 to-pink-600 ">查询</button>    
+                                
             </div>
                 <!-- 图表区域 -->
                 <div id="chart-container" class="mt-6 bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl mx-auto hidden">
                     <canvas id="emotion-chart" class="w-full h-96"></canvas>
                 </div>
+                <!-- 无数据返回区域 -->
+                <p  id="chart-message" 
+                    class="mt-6 text-center text-lg font-semibold 
+                    text-purple-800 
+                    px-4 py-3 rounded-xl 
+                    backdrop-blur-[2px]
+                    hidden ">
+                </p>
             </section>
  
 
@@ -99,13 +127,7 @@
 
     <!-- 引入 Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="src/js/dashboard.js"></script>
-    <!-- 确保 GSAP 依赖 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-    <!-- 引入动画 -->
-    <script src="src/js/gsap-animations.js"></script>
+    <script  type="module" src="src/js/dashboard.js"></script>
 
 </body>
 </html>
@@ -142,3 +164,6 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+
+</style>

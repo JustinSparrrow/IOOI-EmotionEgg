@@ -175,3 +175,31 @@ func GetDominantEmotionByTime(c *gin.Context) {
 		"data":   data,
 	})
 }
+
+// GetAllEmotions GET /api/emotion/all?user_id=1
+func GetAllEmotions(c *gin.Context) {
+	userID := c.Query("user_id")
+	if userID == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "user_id required"})
+		return
+	}
+
+	type EmotionRecord struct {
+		Text         string    `json:"text"`
+		EmotionLabel string    `json:"emotion_label"`
+		Timestamp    time.Time `json:"timestamp"`
+	}
+
+	var records []EmotionRecord
+	if err := database.DB.
+		Model(&model.EmotionInteraction{}).
+		Select("text, emotion_label, timestamp").
+		Where("user_id = ?", userID).
+		Order("timestamp desc").
+		Find(&records).Error; err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to get emotion records"})
+		return
+	}
+
+	c.JSON(http.StatusOK, records)
+}

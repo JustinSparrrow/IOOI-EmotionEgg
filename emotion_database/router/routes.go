@@ -28,6 +28,7 @@ func SetupRouter() *gin.Engine {
 
 	api := r.Group("/api")
 	{
+		api.GET("/emotion/all", controller.GetAllEmotions)
 		api.POST("/emotion/upload", controller.UploadEmotion)
 		api.GET("/emotion-years", controller.GetEmotionYears)
 		api.GET("/emotions/dominant", controller.GetDominantEmotionByTime)

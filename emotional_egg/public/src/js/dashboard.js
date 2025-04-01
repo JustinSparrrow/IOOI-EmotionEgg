@@ -116,7 +116,8 @@ async function updateChartWithSelection() {
     const decoded = jwtDecode(token);
     const userId = decoded.user_id;
     let apiUrl = `${baseURL}/api/emotions/dominant?filter=${currentFilter}&user_id=${userId}`;
-
+    const chartMessage = document.getElementById("chart-message");
+    const chartContainer = document.getElementById("chart-container");
     if (currentFilter === "year") {
         apiUrl += `&year=${yearSelector.value}`;
     } else if (currentFilter === "month") {
@@ -137,6 +138,18 @@ async function updateChartWithSelection() {
         const result = await res.json();
         console.log("📊 获取到的 JSON 数据：", result);
         const chartContainer = document.getElementById("chart-container");
+        const dataPoints = result.data.map(obj => Number(Object.keys(obj)[0])); //解析js
+        const labels = result.labels; 
+
+        //判断是否获取有效信息
+        if (!labels.length || !dataPoints.length || dataPoints.some(isNaN)) {
+            chartMessage.textContent = "暂无有效数据，请先记录你的情绪吧～";
+            chartMessage.classList.remove("hidden");
+            chartContainer.classList.add("hidden"); // 隐藏图表
+            return;
+        }     
+
+        chartMessage.classList.add("hidden");
         chartContainer.classList.remove("hidden");
         chartContainer.classList.add("show");
 
@@ -144,9 +157,10 @@ async function updateChartWithSelection() {
             chartContainer.scrollIntoView({ behavior: "smooth", block: "center" });
         }, 300);
 
-        emotionChart.data.labels = result.labels || [];
-        emotionChart.data.datasets[0].data = result.data || [];
+        emotionChart.data.labels = labels;
+        emotionChart.data.datasets[0].data = dataPoints;
         emotionChart.update();
+        
         
     } catch (err) {
         console.error("图表数据请求失败", err);

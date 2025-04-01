@@ -39,3 +39,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     // 初始化
     fetchPosts();
 });
+
+document.getElementById("logout-btn").addEventListener("click", () => {
+    localStorage.removeItem("token");  // 清除JWT
+    alert("您已成功退出登录！");
+    window.location.href = "index.html";  //返回主页面
+  });

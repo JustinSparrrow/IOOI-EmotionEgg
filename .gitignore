@@ -30,3 +30,7 @@ build/
 # 环境变量
 .env
 .env.*
+
+# 服务器
+emotion_database/server.log
+emotion_database/emotion_app

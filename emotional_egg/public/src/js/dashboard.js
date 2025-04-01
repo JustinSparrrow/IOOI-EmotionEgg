@@ -2,12 +2,19 @@ import { baseURL } from './config.js';
 import { getToken } from './auth.js';
 import {jwtDecode} from "https://cdn.jsdelivr.net/npm/jwt-decode@4.0.0/build/esm/index.js";
 // 获取 DOM 元素
+
+if (!localStorage.getItem("token")) {
+    window.location.href = "login.html";
+}
+
+
 const yearSelector = document.getElementById("year-selector");
 const monthSelector = document.getElementById("month-selector");
 const weekSelector = document.getElementById("week-selector");
 const dateSelector = document.getElementById("date-selector");
 const avatar = document.getElementById("emotion-avatar");
 
+// 示例：全局按钮点击时检查 token
 // 初始化 Chart.js
 const ctx = document.getElementById("emotion-chart").getContext("2d");
 let emotionChart = new Chart(ctx, {
@@ -49,6 +56,7 @@ async function loadYearOptions() {
         const res = await fetch(`${baseURL}/api/emotion-years?user_id=${userId}`, {
             headers: { 'Authorization': 'Bearer ' + getToken() }
         });
+        console.log(userId);
         const years = await res.json();
         console.log("📅 获取到年份：", years); 
         yearSelector.innerHTML = years.map(y => `<option value="${y}">${y}</option>`).join('');
@@ -107,7 +115,8 @@ async function updateChartWithSelection() {
     const token = getToken();
     const decoded = jwtDecode(token);
     const userId = decoded.user_id;
-    let apiUrl = `${baseURL}/api/emotions?filter=${currentFilter}&user_id=${userId}`;
+    let apiUrl = `${baseURL}/api/emotions/dominant?filter=${currentFilter}&user_id=${userId}`;
+
     if (currentFilter === "year") {
         apiUrl += `&year=${yearSelector.value}`;
     } else if (currentFilter === "month") {
@@ -115,15 +124,18 @@ async function updateChartWithSelection() {
     } else if (currentFilter === "week") {
         apiUrl += `&year=${yearSelector.value}&month=${monthSelector.value}&week=${weekSelector.value}`;
     } else if (currentFilter === "day") {
-        apiUrl += `&date=${dateSelector.value}`;
+        const date = new Date(dateSelector.value);
+        apiUrl += `&year=${date.getFullYear()}&month=${date.getMonth() + 1}&day=${date.getDate()}`;
     }
 
     try {
+        console.log("🎯 正在请求接口：", apiUrl);
+
         const res = await fetch(apiUrl, {
             headers: { 'Authorization': 'Bearer ' + getToken() }
         });
         const result = await res.json();
-
+        console.log("📊 获取到的 JSON 数据：", result);
         const chartContainer = document.getElementById("chart-container");
         chartContainer.classList.remove("hidden");
         chartContainer.classList.add("show");
@@ -132,9 +144,10 @@ async function updateChartWithSelection() {
             chartContainer.scrollIntoView({ behavior: "smooth", block: "center" });
         }, 300);
 
-        emotionChart.data.labels = result.labels;
-        emotionChart.data.datasets[0].data = result.data;
+        emotionChart.data.labels = result.labels || [];
+        emotionChart.data.datasets[0].data = result.data || [];
         emotionChart.update();
+        
     } catch (err) {
         console.error("图表数据请求失败", err);
     }
@@ -186,3 +199,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("query-button").addEventListener("click", updateChartWithSelection);
 });
+document.getElementById("logout-btn").addEventListener("click", () => {
+    localStorage.removeItem("token");  // 清除JWT
+    alert("您已成功退出登录！");
+    window.location.href = "index.html";  // 返回主页面
+  });

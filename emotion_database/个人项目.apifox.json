@@ -1188,7 +1188,7 @@
                   "cookie": [],
                   "header": [
                     {
-                      "name": "token"
+                      "name": "Authorization"
                     }
                   ]
                 },
@@ -1214,7 +1214,17 @@
                     "headers": [],
                     "jsonSchema": {
                       "type": "object",
-                      "properties": {}
+                      "properties": {
+                        "token": {
+                          "type": "string"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "token"
+                      ],
+                      "required": [
+                        "token"
+                      ]
                     },
                     "description": "",
                     "contentType": "json",
@@ -1271,7 +1281,7 @@
               "name": "更新个人资料",
               "api": {
                 "id": "278416399",
-                "method": "post",
+                "method": "put",
                 "path": "/log/user/profile",
                 "parameters": {},
                 "auth": {},
@@ -1280,7 +1290,11 @@
                   "query": [],
                   "body": [],
                   "cookie": [],
-                  "header": []
+                  "header": [
+                    {
+                      "name": "Authorization"
+                    }
+                  ]
                 },
                 "responses": [
                   {
@@ -1641,6 +1655,359 @@
                 "commonResponseStatus": {},
                 "responseChildren": [
                   "BLANK.645476572"
+                ],
+                "visibility": "INHERITED",
+                "oasExtensions": "",
+                "preProcessors": [],
+                "postProcessors": [],
+                "inheritPostProcessors": {},
+                "inheritPreProcessors": {}
+              }
+            },
+            {
+              "name": "获取用户信息",
+              "api": {
+                "id": "278695538",
+                "method": "get",
+                "path": "/log/user/profile",
+                "parameters": {},
+                "auth": {},
+                "securityScheme": {},
+                "commonParameters": {
+                  "query": [],
+                  "body": [],
+                  "cookie": [],
+                  "header": [
+                    {
+                      "name": "Authorization"
+                    }
+                  ]
+                },
+                "responses": [
+                  {
+                    "id": "645788332",
+                    "code": 200,
+                    "name": "成功",
+                    "headers": [],
+                    "jsonSchema": {
+                      "type": "object",
+                      "properties": {
+                        "avatar": {
+                          "type": "string"
+                        },
+                        "log_count": {
+                          "type": "integer"
+                        },
+                        "signature": {
+                          "type": "string"
+                        },
+                        "username": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar",
+                        "log_count",
+                        "signature",
+                        "username"
+                      ]
+                    },
+                    "description": "",
+                    "contentType": "json",
+                    "mediaType": "",
+                    "oasExtensions": ""
+                  }
+                ],
+                "responseExamples": [],
+                "requestBody": {
+                  "type": "none",
+                  "parameters": [],
+                  "mediaType": "",
+                  "examples": [],
+                  "oasExtensions": ""
+                },
+                "description": "",
+                "tags": [],
+                "status": "developing",
+                "serverId": "",
+                "operationId": "",
+                "sourceUrl": "",
+                "ordering": 80,
+                "cases": [],
+                "mocks": [],
+                "customApiFields": "{}",
+                "advancedSettings": {
+                  "disabledSystemHeaders": {}
+                },
+                "mockScript": {},
+                "codeSamples": [],
+                "commonResponseStatus": {},
+                "responseChildren": [
+                  "BLANK.645788332"
+                ],
+                "visibility": "INHERITED",
+                "oasExtensions": "",
+                "preProcessors": [],
+                "postProcessors": [],
+                "inheritPostProcessors": {},
+                "inheritPreProcessors": {}
+              }
+            },
+            {
+              "name": "创建社区帖子",
+              "api": {
+                "id": "278696581",
+                "method": "post",
+                "path": "/log/community/post",
+                "parameters": {},
+                "auth": {},
+                "securityScheme": {},
+                "commonParameters": {
+                  "query": [],
+                  "body": [],
+                  "cookie": [],
+                  "header": [
+                    {
+                      "name": "Authorization"
+                    }
+                  ]
+                },
+                "responses": [
+                  {
+                    "id": "645788339",
+                    "code": 200,
+                    "name": "成功",
+                    "headers": [],
+                    "jsonSchema": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    "description": "",
+                    "contentType": "json",
+                    "mediaType": "",
+                    "oasExtensions": ""
+                  }
+                ],
+                "responseExamples": [],
+                "requestBody": {
+                  "type": "application/json",
+                  "parameters": [],
+                  "jsonSchema": {
+                    "type": "object",
+                    "properties": {}
+                  },
+                  "mediaType": "",
+                  "examples": [
+                    {
+                      "mediaType": "application/json",
+                      "value": "{\n    \"content\": \"今天天气不错，我心情很好！\"\n}"
+                    }
+                  ],
+                  "oasExtensions": ""
+                },
+                "description": "",
+                "tags": [],
+                "status": "developing",
+                "serverId": "",
+                "operationId": "",
+                "sourceUrl": "",
+                "ordering": 90,
+                "cases": [],
+                "mocks": [],
+                "customApiFields": "{}",
+                "advancedSettings": {
+                  "disabledSystemHeaders": {}
+                },
+                "mockScript": {},
+                "codeSamples": [],
+                "commonResponseStatus": {},
+                "responseChildren": [
+                  "BLANK.645788339"
+                ],
+                "visibility": "INHERITED",
+                "oasExtensions": "",
+                "preProcessors": [],
+                "postProcessors": [],
+                "inheritPostProcessors": {},
+                "inheritPreProcessors": {}
+              }
+            },
+            {
+              "name": "获取社区所有帖子",
+              "api": {
+                "id": "278696799",
+                "method": "get",
+                "path": "/log/community/posts",
+                "parameters": {},
+                "auth": {},
+                "securityScheme": {},
+                "commonParameters": {
+                  "query": [],
+                  "body": [],
+                  "cookie": [],
+                  "header": [
+                    {
+                      "name": "Authorization"
+                    }
+                  ]
+                },
+                "responses": [
+                  {
+                    "id": "645787889",
+                    "code": 200,
+                    "name": "成功",
+                    "headers": [],
+                    "jsonSchema": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "ID": {
+                                "type": "integer"
+                              },
+                              "UserID": {
+                                "type": "integer"
+                              },
+                              "Content": {
+                                "type": "string"
+                              },
+                              "Likes": {
+                                "type": "integer"
+                              },
+                              "Comments": {
+                                "type": "array",
+                                "items": {}
+                              },
+                              "CreatedAt": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "data"
+                      ]
+                    },
+                    "description": "",
+                    "contentType": "json",
+                    "mediaType": "",
+                    "oasExtensions": ""
+                  }
+                ],
+                "responseExamples": [],
+                "requestBody": {
+                  "type": "none",
+                  "parameters": [],
+                  "mediaType": "",
+                  "examples": [],
+                  "oasExtensions": ""
+                },
+                "description": "",
+                "tags": [],
+                "status": "developing",
+                "serverId": "",
+                "operationId": "",
+                "sourceUrl": "",
+                "ordering": 100,
+                "cases": [],
+                "mocks": [],
+                "customApiFields": "{}",
+                "advancedSettings": {
+                  "disabledSystemHeaders": {}
+                },
+                "mockScript": {},
+                "codeSamples": [],
+                "commonResponseStatus": {},
+                "responseChildren": [
+                  "BLANK.645787889"
+                ],
+                "visibility": "INHERITED",
+                "oasExtensions": "",
+                "preProcessors": [],
+                "postProcessors": [],
+                "inheritPostProcessors": {},
+                "inheritPreProcessors": {}
+              }
+            },
+            {
+              "name": "获取最近一次情绪交互记录",
+              "api": {
+                "id": "278697245",
+                "method": "get",
+                "path": "/log/user/lastInteraction",
+                "parameters": {},
+                "auth": {},
+                "securityScheme": {},
+                "commonParameters": {
+                  "query": [],
+                  "body": [],
+                  "cookie": [],
+                  "header": [
+                    {
+                      "name": "Authorization"
+                    }
+                  ]
+                },
+                "responses": [
+                  {
+                    "id": "645766730",
+                    "code": 404,
+                    "name": "记录不存在",
+                    "headers": [],
+                    "jsonSchema": {
+                      "type": "object",
+                      "properties": {
+                        "error": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "error"
+                      ]
+                    },
+                    "description": "",
+                    "contentType": "json",
+                    "mediaType": "",
+                    "oasExtensions": ""
+                  }
+                ],
+                "responseExamples": [],
+                "requestBody": {
+                  "type": "none",
+                  "parameters": [],
+                  "mediaType": "",
+                  "examples": [],
+                  "oasExtensions": ""
+                },
+                "description": "",
+                "tags": [],
+                "status": "developing",
+                "serverId": "",
+                "operationId": "",
+                "sourceUrl": "",
+                "ordering": 110,
+                "cases": [],
+                "mocks": [],
+                "customApiFields": "{}",
+                "advancedSettings": {
+                  "disabledSystemHeaders": {}
+                },
+                "mockScript": {},
+                "codeSamples": [],
+                "commonResponseStatus": {},
+                "responseChildren": [
+                  "BLANK.645766730"
                 ],
                 "visibility": "INHERITED",
                 "oasExtensions": "",
@@ -2263,10 +2630,10 @@
       "variables": [
         {
           "name": "token",
-          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDM2OTYyNjMsInVzZXJfaWQiOjZ9.ZshRCIkDJk0vxU9LLDVpoqx_t2i4z2jZDs0cx7fZruw",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDM3MzQwNDQsInVzZXJfaWQiOjF9.dJQvlJkjgKZUwaATuCWDvmuu1hZeTT7dwgbdQKtmY3k",
           "description": "",
           "isBindInitial": true,
-          "initialValue": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDM2OTYyNjMsInVzZXJfaWQiOjZ9.ZshRCIkDJk0vxU9LLDVpoqx_t2i4z2jZDs0cx7fZruw",
+          "initialValue": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDM3MzQwNDQsInVzZXJfaWQiOjF9.dJQvlJkjgKZUwaATuCWDvmuu1hZeTT7dwgbdQKtmY3k",
           "isSync": true
         }
       ]

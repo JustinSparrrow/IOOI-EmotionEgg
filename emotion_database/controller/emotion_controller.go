@@ -109,12 +109,17 @@ func GetDominantEmotionByTime(c *gin.Context) {
 
 	switch filter {
 	case "year":
-		query = query.Select("TO_CHAR(timestamp, 'YYYY') AS label, mode() WITHIN GROUP (ORDER BY emotion_label) AS mode").
-			Group("label")
+		query = query.Where("emotion_label IS NOT NULL AND emotion_label != ''").
+			Select("TO_CHAR(timestamp, 'YYYY') AS label, mode() WITHIN GROUP (ORDER BY emotion_label) AS emotion_label").
+			Group("label").
+			Order("label")
 
 	case "month":
-		query = query.Select("TO_CHAR(timestamp, 'YYYY-MM') AS label, mode() WITHIN GROUP (ORDER BY emotion_label) AS mode").
-			Group("label")
+		query = query.Where("emotion_label IS NOT NULL AND emotion_label != ''").
+			Where("EXTRACT(YEAR FROM timestamp) = ? AND EXTRACT(MONTH FROM timestamp) = ?", year, month).
+			Select("TO_CHAR(timestamp, 'YYYY-MM') AS label, mode() WITHIN GROUP (ORDER BY emotion_label) AS emotion_label").
+			Group("label").
+			Order("label")
 
 	case "day":
 		if year == "" || month == "" || day == "" { // 添加 day 参数校验
@@ -131,9 +136,11 @@ func GetDominantEmotionByTime(c *gin.Context) {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "year and month required"})
 			return
 		}
-		query = query.Where("EXTRACT(YEAR FROM timestamp) = ? AND EXTRACT(MONTH FROM timestamp) = ?", year, month).
-			Select("CONCAT('Week ', week_in_month) AS label, mode() WITHIN GROUP (ORDER BY emotion_label) AS mode").
-			Group("label")
+		query = query.Where("emotion_label IS NOT NULL AND emotion_label != ''").
+			Where("EXTRACT(YEAR FROM timestamp) = ? AND EXTRACT(MONTH FROM timestamp) = ?", year, month).
+			Select("CONCAT('Week ', week_in_month) AS label, mode() WITHIN GROUP (ORDER BY emotion_label) AS emotion_label").
+			Group("label").
+			Order("label")
 
 	default:
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Unsupported filter"})

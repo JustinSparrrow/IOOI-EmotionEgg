@@ -1,6 +1,11 @@
 import { baseURL } from './config.js';
 import { getToken } from './auth.js';
 
+if (!localStorage.getItem("token")) {
+    window.location.href = "login.html";
+}
+
+
 document.addEventListener("DOMContentLoaded", async function () {
     const postList = document.getElementById("post-list");
     const postBtn = document.getElementById("post-btn");

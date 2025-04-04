@@ -2,6 +2,11 @@
 import { baseURL } from './config.js';
 import { getToken } from './auth.js';
 
+if (!localStorage.getItem("token")) {
+    window.location.href = "login.html";
+}
+
+
 const userNameEl = document.getElementById('user-name');
 const userEmailEl = document.getElementById('user-email');
 const userIntroEl = document.getElementById('user-intro');

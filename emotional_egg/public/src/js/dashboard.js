@@ -136,11 +136,13 @@ async function updateChartWithSelection() {
             headers: { 'Authorization': 'Bearer ' + getToken() }
         });
         const result = await res.json();
-        console.log("📊 获取到的 JSON 数据：", result);
         const chartContainer = document.getElementById("chart-container");
-        const dataPoints = result.data.map(obj => Number(Object.keys(obj)[0])); //解析js
-        const labels = result.labels; 
-
+        //解析js
+        const data = result.data; 
+        const entries = Object.entries(data);
+        entries.sort((a, b) => new Date(a[0]) - new Date(b[0]));
+        const labels = entries.map(([label, _]) => label);
+        const dataPoints = entries.map(([_, value]) => Number(value));
         //判断是否获取有效信息
         if (!labels.length || !dataPoints.length || dataPoints.some(isNaN)) {
             chartMessage.textContent = "暂无有效数据，请先记录你的情绪吧～";

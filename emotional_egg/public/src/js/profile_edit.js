@@ -1,6 +1,12 @@
 import { baseURL } from "./config.js";
 import { getToken } from "./auth.js";
 
+if (!localStorage.getItem("token")) {
+    window.location.href = "login.html";
+}
+
+
+
 const signatureInput = document.getElementById("signature");
 const avatarInput = document.getElementById("avatar");
 const form = document.getElementById("profile-form");

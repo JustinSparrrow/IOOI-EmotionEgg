@@ -51,7 +51,6 @@ async function loadYearOptions() {
     const token = getToken();
     const decoded = jwtDecode(token);
     const userId = decoded.user_id;
-
     try {
         const res = await fetch(`${baseURL}/api/emotion-years?user_id=${userId}`, {
             headers: { 'Authorization': 'Bearer ' + getToken() }
@@ -92,8 +91,6 @@ function setTimeFilter(filter) {
     currentFilter = filter;
     yearSelector.classList.add("hidden");
     monthSelector.classList.add("hidden");
-    weekSelector.classList.add("hidden");
-    dateSelector.classList.add("hidden");
 
     if (filter === "year") {
         yearSelector.classList.remove("hidden");
@@ -112,6 +109,7 @@ function setTimeFilter(filter) {
 
 // 从后端获取情绪数据
 async function updateChartWithSelection() {
+    console.log("运行到这里了");
     const token = getToken();
     const decoded = jwtDecode(token);
     const userId = decoded.user_id;
@@ -122,11 +120,6 @@ async function updateChartWithSelection() {
         apiUrl += `&year=${yearSelector.value}`;
     } else if (currentFilter === "month") {
         apiUrl += `&year=${yearSelector.value}&month=${monthSelector.value}`;
-    } else if (currentFilter === "week") {
-        apiUrl += `&year=${yearSelector.value}&month=${monthSelector.value}&week=${weekSelector.value}`;
-    } else if (currentFilter === "day") {
-        const date = new Date(dateSelector.value);
-        apiUrl += `&year=${date.getFullYear()}&month=${date.getMonth() + 1}&day=${date.getDate()}`;
     }
 
     try {
@@ -210,9 +203,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("btn-year").addEventListener("click", () => setTimeFilter("year"));
     document.getElementById("btn-month").addEventListener("click", () => setTimeFilter("month"));
-    document.getElementById("btn-week").addEventListener("click", () => setTimeFilter("week"));
-    document.getElementById("btn-day").addEventListener("click", () => setTimeFilter("day"));
-
     document.getElementById("query-button").addEventListener("click", updateChartWithSelection);
 });
 document.getElementById("logout-btn").addEventListener("click", () => {
@@ -220,3 +210,4 @@ document.getElementById("logout-btn").addEventListener("click", () => {
     alert("您已成功退出登录！");
     window.location.href = "index.html";  // 返回主页面
   });
+

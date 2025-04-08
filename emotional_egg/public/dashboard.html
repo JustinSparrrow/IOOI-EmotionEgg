@@ -36,18 +36,32 @@
 
     <!-- 页面主体 -->
     <main class="container mx-auto px-6 py-10 space-y-12">
-        <h2 class="text-3xl font-bold text-primary text-center">情绪日志</h2>
-
-        <!-- 专属情绪小人 -->
-        <section class="mt-8 text-center">
-            <h3 class="text-xl font-semibold">你的情绪小人</h3>
-            <div id="emotion-avatar" class="w-32 h-32 mx-auto mt-4 bg-white rounded-full shadow-lg flex items-center justify-center text-4xl">
-                🎉
+        <section class="bg-white rounded-xl shadow-lg p-6">
+            <h3 class="text-xl font-semibold text-center mb-4">情绪日志</h3>
+          
+            <!-- 日选择器 + 查询按钮 -->
+            <div class="flex justify-center gap-4 mb-6">
+              <input type="date" id="log-date-selector" class="border border-gray-300 px-3 py-2 rounded-lg shadow-sm">
+              <button id="log-query-button" class="query-button bg-gradient-to-br from-rose-500 to-pink-600">查看日志</button>
             </div>
-        </section>
+          
+            <!-- 情绪小人 -->
+            <div class="text-center mb-6">
+              <h3 class="text-lg font-semibold">你的情绪小人</h3>
+              <div id="emotion-avatar" class="w-24 h-24 mx-auto mt-3 bg-white rounded-full shadow flex items-center justify-center text-4xl">
+                🎉
+              </div>
+            </div>
+          
+            <!-- 日志对话展示 还没实现逻辑死的 -->
+            <div id="interaction-log" class="bg-pink-50 p-4 rounded-lg shadow-md space-y-4 max-w-2xl mx-auto">
+              <!-- JS 插入“您说”与“情绪助手说”的内容 -->
+            </div>
+          </section>
+
         <!-- 情绪趋势 -->
-        <section class="mt-8 text-center">
-            <h3 class="text-xl font-semibold">情绪趋势</h3>
+        <section class="bg-white rounded-xl shadow-lg p-6">
+            <h3 class="text-xl font-semibold text-center mb-4">情绪趋势分析</h3>
             <div class="mt-6 flex justify-center space-x-6">
                 <!-- 选择查询方式按钮 -->
                 <button id="btn-year" class="px-6 py-3 bg-gradient-to-br from-rose-500 to-pink-600 text-white font-semibold rounded-xl 
@@ -62,18 +76,7 @@
                 active:scale-95 active:from-pink-700 tracking-wide">
                 月
             </button>
-            <button id="btn-week" class="px-6 py-3 bg-gradient-to-br from-rose-500 to-pink-600 text-white font-semibold rounded-xl 
-                shadow-md hover:shadow-lg transition-all duration-200 
-                transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-opacity-75 
-                active:scale-95 active:from-pink-700 tracking-wide">
-                周
-            </button>
-            <button id="btn-day" class="px-6 py-3 bg-gradient-to-br from-rose-500 to-pink-600 text-white font-semibold rounded-xl 
-                shadow-md hover:shadow-lg transition-all duration-200 
-                transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-opacity-75 
-                active:scale-95 active:from-pink-700 tracking-wide">
-                日
-            </button>
+
             
             </div>
 
@@ -85,12 +88,6 @@
                 <!-- 月选择 -->
                 <select id="month-selector" class="border border-gray-300 px-3 py-2 rounded-lg shadow-sm hidden"></select>
 
-                <!-- 周选择 -->
-                <select id="week-selector" class="border border-gray-300 px-3 py-2 rounded-lg shadow-sm hidden"></select>
-
-                <!-- 日选择 -->
-                <input type="date" id="date-selector" class="border border-gray-300 px-3 py-2 rounded-lg shadow-sm hidden">
-                
                 <!-- 查询按钮 -->
                 <button id="query-button" class="query-button bg-gradient-to-br from-rose-500 to-pink-600 ">查询</button>    
                                 
@@ -99,6 +96,7 @@
                 <div id="chart-container" class="mt-6 bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl mx-auto hidden">
                     <canvas id="emotion-chart" class="w-full h-96"></canvas>
                 </div>
+
                 <!-- 无数据返回区域 -->
                 <p  id="chart-message" 
                     class="mt-6 text-center text-lg font-semibold 
@@ -107,16 +105,19 @@
                     backdrop-blur-[2px]
                     hidden ">
                 </p>
-            </section>
+            
  
 
         <!-- 雕刻情绪陨石 -->
-        <section class="mt-8 text-center">
+        <div class="mt-10 text-center">
             <h3 class="text-xl font-semibold">雕刻你的情绪陨石</h3>
-            <div id="meteor-container" class="w-40 h-40 mx-auto mt-4 bg-gray-300 rounded-full shadow-lg flex items-center justify-center">
-                🚀
+            <div id="meteor-container" class="w-40 h-40 mx-auto mt-4 bg-gray-300 rounded-full shadow-lg flex items-center justify-center overflow-hidden">
+                <video autoplay loop muted playsinline class="w-full h-full object-cover rounded-full">
+                    <source src="./images/defult.mp4" type="video/mp4">
+                    你的浏览器不支持 video 标签。
+                </video>
             </div>
-            <p class="text-gray-600 mt-2">⬆️搭建一个3D的陨石出来还在探索</p>
+
         </section>
     </main>
 

@@ -99,6 +99,8 @@ func GetDominantEmotionByTime(c *gin.Context) {
 	var results []struct {
 		Label        string
 		EmotionLabel string
+		Text         string
+		Suggestion   string
 	}
 	query := database.DB.Model(&model.EmotionInteraction{}).Where("user_id = ?", userID)
 
@@ -122,8 +124,7 @@ func GetDominantEmotionByTime(c *gin.Context) {
 			return
 		}
 		query = query.Where("EXTRACT(YEAR FROM timestamp) = ? AND EXTRACT(MONTH FROM timestamp) = ? AND EXTRACT(DAY FROM timestamp) = ?", year, month, day).
-			Select("TO_CHAR(timestamp, 'HH24:00') AS label, emotion_label").
-			Group("label, emotion_label").
+			Select("TO_CHAR(timestamp, 'HH24:00') AS label, emotion_label, text, suggestion").
 			Order("label")
 
 	case "week":
@@ -143,7 +144,7 @@ func GetDominantEmotionByTime(c *gin.Context) {
 	}
 
 	if err := query.Scan(&results).Error; err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to query data"})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
 
@@ -151,15 +152,20 @@ func GetDominantEmotionByTime(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{"data": map[string]string{}})
 		return
 	}
+	emotionData := make(map[string]map[string]string) // 每个 label 对应一个 map
 
-	emotionData := make(map[string]string)
 	for _, r := range results {
-		emotionData[r.Label] = r.EmotionLabel
+		emotionData[r.Label] = map[string]string{
+			"emotion_label": r.EmotionLabel,
+			"text":          r.Text,
+			"suggestion":    r.Suggestion,
+		}
 	}
 
 	c.JSON(http.StatusOK, gin.H{
 		"data": emotionData,
 	})
+
 }
 
 // GetAllEmotions GET /api/emotion/all?user_id=1

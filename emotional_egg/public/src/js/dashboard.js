@@ -53,9 +53,27 @@ async function updateLogs() {
     const token = getToken();
     const decoded = jwtDecode(token);
     const userId = decoded.user_id;
+    const selectedDate = document.getElementById("log-date-selector").value;
+
+    if (!selectedDate) {
+        console.error("请选择日期");
+        return;  // 如果没有选择日期，直接返回
+    }
+    //分割日期选择
+    const [year, month, day] = selectedDate.split("-");
+
+    //构建查询参数
+    const filter = "day";  // 假设我们查询的是按天的日志
+    const queryParams = new URLSearchParams({
+        user_id: userId,
+        day: day,
+        month: month,
+        year: year,
+        filter: filter
+    }).toString();
 
     try {
-        const res = await fetch(`${baseURL}/api/emotions/dominant?filter=day&user_id=${userId}&year=2025&month=4&day=21`, {
+        const res = await fetch(`${baseURL}/api/emotions/dominant?${queryParams}`, {
             headers: { 'Authorization': 'Bearer ' + token }
         });
 

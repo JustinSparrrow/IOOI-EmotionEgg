@@ -55,7 +55,7 @@ async function updateLogs() {
     const userId = decoded.user_id;
 
     try {
-        const res = await fetch(`${baseURL}/api/emotions/dominant?user_id=${userId}`, {
+        const res = await fetch(`${baseURL}/api/emotions/dominant?filter=day&user_id=${userId}&year=2025&month=4&day=21`, {
             headers: { 'Authorization': 'Bearer ' + token }
         });
 
@@ -254,7 +254,7 @@ function getEmotionFromScore(score) {
         case 2: return "😐";
         case 1: return "😢";
         case 0: return "😡";
-        default: return "😐";
+        default: return "😊";
     }
 }
 

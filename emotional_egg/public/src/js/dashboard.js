@@ -13,6 +13,8 @@ const monthSelector = document.getElementById("month-selector");
 const weekSelector = document.getElementById("week-selector");
 const dateSelector = document.getElementById("date-selector");
 const avatar = document.getElementById("emotion-avatar");
+const dateSelectorForLogs = document.getElementById("log-date-selector");
+
 
 // 示例：全局按钮点击时检查 token
 // 初始化 Chart.js
@@ -44,6 +46,75 @@ let emotionChart = new Chart(ctx, {
         }
     }
 });
+
+
+// 填充年份选择器 更新日志函数->更新情绪小人和交互内容即可
+async function updateLogs() {
+    const token = getToken();
+    const decoded = jwtDecode(token);
+    const userId = decoded.user_id;
+
+    try {
+        const res = await fetch(`${baseURL}/api/emotions/dominant?user_id=${userId}`, {
+            headers: { 'Authorization': 'Bearer ' + token }
+        });
+
+        if (res.ok) {
+            const data = await res.json();
+            const logs = data.data; // 获取返回的数据
+
+            const logContainer = document.getElementById("interaction-log");
+            logContainer.innerHTML = '';  // 清空现有内容
+
+            // 遍历每个时间段（例如 "15:00"）
+            for (let time in logs) {
+                const log = logs[time];
+
+                const logElement = document.createElement('div');
+                logElement.classList.add('log-item', 'bg-white', 'p-4', 'rounded-lg', 'shadow-md', 'mb-4');
+
+                // 添加时间
+                const timeElement = document.createElement('h3');
+                timeElement.classList.add('font-semibold', 'text-gray-800');
+                timeElement.textContent = `${time}`;
+
+                // 添加“情绪标签”
+                const emotionLabel = document.createElement('p');
+                emotionLabel.classList.add('font-semibold', 'text-gray-600');
+                emotionLabel.textContent = `情绪: ${log.emotion_label || '无情绪'}`;
+
+                // 添加“您说”（text）
+                const userText = document.createElement('p');
+                userText.classList.add('font-semibold', 'text-gray-800');
+                userText.textContent = `您说: ${log.text || '无内容'}`;
+
+                // 添加“建议”（suggestion）
+                const suggestion = document.createElement('p');
+                suggestion.classList.add('text-sm', 'text-gray-500');
+                suggestion.textContent = `建议: ${log.suggestion || '无建议'}`;
+
+                // 将所有元素添加到 logElement 中
+                logElement.appendChild(timeElement);
+                logElement.appendChild(emotionLabel);
+                logElement.appendChild(userText);
+                logElement.appendChild(suggestion);
+
+                // 将 logElement 添加到 logContainer 中
+                logContainer.appendChild(logElement);
+            }
+        } else {
+            console.error('Failed to fetch logs:', res.statusText);
+        }
+    } catch (err) {
+        console.error('Error fetching logs:', err);
+    }
+}
+
+
+
+
+
+
 
 // 填充年份选择器（从后端拿数据）
 async function loadYearOptions() {
@@ -204,7 +275,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btn-year").addEventListener("click", () => setTimeFilter("year"));
     document.getElementById("btn-month").addEventListener("click", () => setTimeFilter("month"));
     document.getElementById("query-button").addEventListener("click", updateChartWithSelection);
+    document.getElementById("log-query-button").addEventListener("click",updateLogs);
 });
+
 document.getElementById("logout-btn").addEventListener("click", () => {
     localStorage.removeItem("token");  // 清除JWT
     alert("您已成功退出登录！");

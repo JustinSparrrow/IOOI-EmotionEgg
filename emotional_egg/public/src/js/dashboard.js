@@ -202,13 +202,18 @@ async function updateChartWithSelection() {
     const token = getToken();
     const decoded = jwtDecode(token);
     const userId = decoded.user_id;
+    console.log("测试currentfillter",currentFilter);
+
     let apiUrl = `${baseURL}/api/emotions/dominant?filter=${currentFilter}&user_id=${userId}`;
+    console.log("测试处理前apiurl",apiUrl);
     const chartMessage = document.getElementById("chart-message");
     const chartContainer = document.getElementById("chart-container");
     if (currentFilter === "year") {
         apiUrl += `&year=${yearSelector.value}`;
+        console.log("测试处理逻辑1 apiurl",apiUrl);
     } else if (currentFilter === "month") {
-        apiUrl += `&year=${yearSelector.value}&month=${monthSelector.value}`;
+        apiUrl += `&year=${yearSelector.value}&month=${monthSelector.value}&year=${yearSelector.value}`;
+        console.log("测试处理逻辑2 apiurl",apiUrl);
     }
 
     try {
@@ -217,14 +222,38 @@ async function updateChartWithSelection() {
         const res = await fetch(apiUrl, {
             headers: { 'Authorization': 'Bearer ' + getToken() }
         });
+        console.log("测试访问成功了吗",res);
         const result = await res.json();
+        console.log("json解析成功了吗",result);
         const chartContainer = document.getElementById("chart-container");
         //解析js
         const data = result.data; 
-        const entries = Object.entries(data);
+        //const entries = Object.entries(data);
+        // 使用 Object.entries 转换数据并仅保留 `emotion_label`
+        const entries = Object.entries(data).map(([label, { emotion_label }]) => [label, emotion_label]);
+
+        console.log(entries);
+        console.log("画图数组里是什么", entries);
+
         entries.sort((a, b) => new Date(a[0]) - new Date(b[0]));
         const labels = entries.map(([label, _]) => label);
-        const dataPoints = entries.map(([_, value]) => Number(value));
+
+        //映射规则在哪没找到呀，我在这里补一个
+        const labelMap = {
+            happy: 3,  
+            calm: 2,   
+            sad: 1,   
+            angry: 0  
+        };
+        
+        //const dataPoints = entries.map(([_, value]) => Number(value));
+        
+        const dataPoints = entries.map(([_, value]) => labelMap[value] || 0); // 如果无法识别的标签返回 0
+
+        
+
+        console.log("横坐标解析成功了吗", labels);
+        console.log("纵坐标解析成功了吗", dataPoints);
         //判断是否获取有效信息
         if (!labels.length || !dataPoints.length || dataPoints.some(isNaN)) {
             chartMessage.textContent = "暂无有效数据，请先记录你的情绪吧～";

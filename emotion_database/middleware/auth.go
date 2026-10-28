@@ -1,33 +1,46 @@
 package middleware
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/golang-jwt/jwt/v5"
+	"emotion_database/config"
 	"net/http"
 	"strings"
+
+	"github.com/gin-gonic/gin"
+	"github.com/golang-jwt/jwt/v5"
 )
 
+// AuthMiddleware 校验 Authorization 头中的 Bearer Token。
+// 校验通过后把 user_id 写入上下文，供后续 handler 取用。
 func AuthMiddleware() gin.HandlerFunc {
+	secret := []byte(config.Get().JWT.Secret)
+
 	return func(c *gin.Context) {
 		authHeader := c.GetHeader("Authorization")
 		if authHeader == "" || !strings.HasPrefix(authHeader, "Bearer ") {
-			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "Authorization header missing or invalid"})
+			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "缺少或格式错误的 Authorization 头"})
 			return
 		}
 
 		tokenStr := strings.TrimPrefix(authHeader, "Bearer ")
-		token, err := jwt.Parse(tokenStr, func(token *jwt.Token) (interface{}, error) {
-			return []byte("mysecret"), nil // 与登录生成 token 时一致
-		})
 
+		// 必须显式限定签名算法。
+		// 若不限定，攻击者可将 header 中的 alg 改为 none，或换成其他算法族，
+		// 利用解析器"按 token 自称的算法去验证"的行为绕过签名检查（alg 混淆攻击）。
+		token, err := jwt.Parse(
+			tokenStr,
+			func(token *jwt.Token) (interface{}, error) {
+				return secret, nil
+			},
+			jwt.WithValidMethods([]string{jwt.SigningMethodHS256.Alg()}),
+		)
 		if err != nil || !token.Valid {
-			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "Invalid token"})
+			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "无效的 Token"})
 			return
 		}
 
 		claims, ok := token.Claims.(jwt.MapClaims)
 		if !ok {
-			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "Invalid token claims"})
+			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "无法解析 Token 载荷"})
 			return
 		}
 

@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"emotion_database/config"
 	"emotion_database/database"
 	"emotion_database/model"
 	"github.com/golang-jwt/jwt/v5"
@@ -69,14 +70,14 @@ func Login(c *gin.Context) {
 		return
 	}
 
-	// Create JWT token
+	// 签发 JWT，有效期与密钥均来自统一配置
+	cfg := config.Get()
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"user_id": user.ID,
-		"exp":     time.Now().Add(time.Hour * 72).Unix(), // 3天有效
+		"exp":     time.Now().Add(cfg.JWT.Expire).Unix(),
 	})
 
-	// Secret 密钥（后续可移到 config）
-	tokenString, err := token.SignedString([]byte("mysecret"))
+	tokenString, err := token.SignedString([]byte(cfg.JWT.Secret))
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to create token"})
 		return

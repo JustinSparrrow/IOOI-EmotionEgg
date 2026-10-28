@@ -45,3 +45,6 @@ emotion_database/server.log
 # ===== 数据库本地数据卷 =====
 pgdata/
 postgres-data/
+
+# ===== 工作区本地数据（不随仓库分发） =====
+.workbuddy/

@@ -1,0 +1,50 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: emotion-egg-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+      POSTGRES_DB: ${DB_NAME:-emotion_app}
+      TZ: Asia/Shanghai
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      # 关键：容器"已启动"不等于"能接受连接"。
+      # PostgreSQL 进程起来后还要完成初始化才能服务，
+      # 若只靠 depends_on 的默认行为，app 会在数据库就绪前启动并崩溃。
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres} -d ${DB_NAME:-emotion_app}"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+      start_period: 5s
+
+  app:
+    build:
+      context: ./emotion_database
+    container_name: emotion-egg-api
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # 容器内通过服务名 db 访问数据库，不能写 localhost
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: ${DB_USER:-postgres}
+      DB_PASSWORD: ${DB_PASSWORD:-postgres}
+      DB_NAME: ${DB_NAME:-emotion_app}
+      DB_SSLMODE: disable
+      SERVER_PORT: 8080
+      # :? 表示变量缺失时直接中断编排，避免用空密钥启动服务
+      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET 未设置，请先执行 cp .env.example .env 并填写}
+      JWT_EXPIRE_HOURS: ${JWT_EXPIRE_HOURS:-72}
+      TRUSTED_PROXIES: ${TRUSTED_PROXIES:-127.0.0.1}
+    ports:
+      - "8080:8080"
+
+volumes:
+  pgdata:

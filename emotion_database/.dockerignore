@@ -1,0 +1,11 @@
+# 构建上下文里应当排除的内容
+.git
+.gitignore
+*.md
+.env
+.env.*
+!.env.example
+*.log
+coverage.out
+Dockerfile
+.dockerignore

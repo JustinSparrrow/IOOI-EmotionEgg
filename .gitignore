@@ -1,21 +1,23 @@
-# macOS
+# ===== 系统与 IDE =====
 .DS_Store
 **/.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
 
-# Node.js
+# ===== Node.js =====
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
 # 前端构建输出
 dist/
 build/
 
-# VSCode 配置文件
-.vscode/
-
-# Go
+# ===== Go =====
 *.exe
 *.exe~
 *.dll
@@ -23,14 +25,23 @@ build/
 *.dylib
 *.test
 *.out
+coverage.out
+coverage.html
 
-# GoLand / JetBrains IDE 缓存
-.idea/
+# 编译产物
+emotion_database/emotion_database
+emotion_database/emotion_app
 
-# 环境变量
+# ===== 环境变量与密钥 =====
+# 真实配置一律不入库，只保留模板
 .env
 .env.*
+!.env.example
 
-# 服务器
+# 本地日志
+*.log
 emotion_database/server.log
-emotion_database/emotion_app
+
+# ===== 数据库本地数据卷 =====
+pgdata/
+postgres-data/
